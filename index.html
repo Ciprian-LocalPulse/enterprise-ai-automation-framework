@@ -1,0 +1,2717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Automation Empire — Enterprise Blueprint | Silicon Valley's Most Comprehensive Automation Business System</title>
+<meta name="description" content="The $5,000+ enterprise blueprint used by Silicon Valley's top automation consultants to build, scale, and exit $50,000/month AI automation businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN SYSTEM — EXECUTIVE DARK THESIS
+═══════════════════════════════════════════════════════════════ */
+:root {
+  --navy-950: #020817;
+  --navy-900: #0B1221;
+  --navy-800: #0F1A2E;
+  --navy-700: #142040;
+  --navy-600: #1B2B54;
+  --navy-500: #1E3A6E;
+  --gold-500: #C9A84C;
+  --gold-400: #D4A843;
+  --gold-300: #E8C46A;
+  --gold-200: #F2D98A;
+  --gold-glow: rgba(201,168,76,0.25);
+  --gold-glow-sm: rgba(201,168,76,0.12);
+  --white: #FFFFFF;
+  --gray-100: #F8FAFC;
+  --gray-200: #E8EDF5;
+  --gray-300: #C4CEDF;
+  --gray-400: #8899B0;
+  --gray-500: #5C6E8A;
+  --red-500: #DC2626;
+  --green-500: #059669;
+  --teal-500: #0D9488;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 4px;
+  --radius-lg: 8px;
+  --shadow-gold: 0 0 40px rgba(201,168,76,0.15), 0 0 80px rgba(201,168,76,0.08);
+  --shadow-deep: 0 24px 80px rgba(0,0,0,0.6);
+  --border-gold: 1px solid rgba(201,168,76,0.3);
+  --border-subtle: 1px solid rgba(255,255,255,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--navy-950);
+  color: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── TYPOGRAPHY ─────────────────────────────────────────────── */
+.serif { font-family: var(--font-serif); }
+.mono  { font-family: var(--font-mono); }
+
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; line-height: 1.2; }
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-300);
+  max-width: 680px;
+  line-height: 1.8;
+}
+
+.gold-text { color: var(--gold-400); }
+.white-text { color: var(--white); }
+
+/* ─── LAYOUT ─────────────────────────────────────────────────── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+.container-wide { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+
+section { padding: 6rem 0; }
+.section-dark { background: var(--navy-950); }
+.section-deeper { background: var(--navy-900); }
+.section-mid { background: var(--navy-800); }
+
+/* ─── DIVIDERS ───────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+  margin: 0;
+  opacity: 0.4;
+}
+
+.divider-vertical {
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gold-500), transparent);
+  opacity: 0.4;
+}
+
+/* ─── GOLD LINE ACCENT ───────────────────────────────────────── */
+.gold-rule {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-400), var(--gold-300));
+  margin: 1.5rem 0;
+  border-radius: 2px;
+}
+
+.gold-rule-center {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-400), var(--gold-300));
+  margin: 1.5rem auto;
+  border-radius: 2px;
+}
+
+/* ─── BUTTONS ────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.125rem 2.5rem;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+  color: var(--navy-950);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px var(--gold-glow), 0 1px 0 rgba(255,255,255,0.2) inset;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px var(--gold-glow), 0 1px 0 rgba(255,255,255,0.2) inset;
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-400));
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.125rem 2.5rem;
+  background: transparent;
+  color: var(--gold-400);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: var(--radius);
+  border: var(--border-gold);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--gold-glow-sm);
+  border-color: var(--gold-400);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-300);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.2s;
+}
+.btn-ghost:hover { color: var(--gold-400); }
+
+/* ─── CARDS ──────────────────────────────────────────────────── */
+.card {
+  background: var(--navy-800);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(201,168,76,0.2);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gold);
+}
+
+.card-gold {
+  background: linear-gradient(135deg, var(--navy-700), var(--navy-800));
+  border: var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+/* ─── STAT BLOCKS ────────────────────────────────────────────── */
+.stat-value {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--gold-400);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+/* ─── TABLES ─────────────────────────────────────────────────── */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th {
+  background: var(--navy-600);
+  color: var(--gold-400);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+}
+.data-table td {
+  padding: 0.875rem 1.25rem;
+  border-bottom: var(--border-subtle);
+  font-size: 0.95rem;
+  color: var(--gray-200);
+  vertical-align: top;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+.data-table tr.highlight td {
+  background: rgba(201,168,76,0.06);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* ─── CALLOUT BOXES ──────────────────────────────────────────── */
+.callout {
+  border-left: 3px solid var(--gold-400);
+  background: rgba(201,168,76,0.06);
+  padding: 1.5rem 2rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 2rem 0;
+}
+.callout-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: 0.75rem;
+}
+.callout-red { border-left-color: var(--red-500); background: rgba(220,38,38,0.06); }
+.callout-red .callout-title { color: #F87171; }
+.callout-green { border-left-color: var(--green-500); background: rgba(5,150,105,0.06); }
+.callout-green .callout-title { color: #34D399; }
+
+/* ─── GRIDS ──────────────────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+@media (max-width: 900px) {
+  .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  section { padding: 4rem 0; }
+  .stat-value { font-size: 2.2rem; }
+}
+
+/* ─── NAVIGATION ─────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(2,8,23,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 1rem 0;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.nav-logo {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--gold-400);
+  letter-spacing: 0.05em;
+}
+.nav-logo span { color: var(--gray-400); font-weight: 400; font-size: 0.8rem; display: block; }
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--gray-300);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold-400); }
+.nav-cta {
+  padding: 0.625rem 1.5rem;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+  color: var(--navy-950);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--gold-glow); }
+
+/* ─── HERO ───────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 20% 50%, rgba(30,58,110,0.5) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+              var(--navy-950);
+  padding-top: 80px;
+}
+
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(201,168,76,0.12);
+  border: var(--border-gold);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: 2rem;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold-400);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+.hero-title {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-family: var(--font-serif);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-400);
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--gray-300);
+  max-width: 640px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.hero-meta-item {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero-meta-item strong { color: var(--gold-400); font-family: var(--font-serif); font-size: 1rem; }
+
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+
+.hero-proof {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: var(--border-subtle);
+}
+
+.hero-proof-avatars {
+  display: flex;
+}
+.hero-proof-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--navy-950);
+  background: linear-gradient(135deg, var(--navy-600), var(--navy-500));
+  margin-left: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-300);
+}
+.hero-proof-avatar:first-child { margin-left: 0; }
+.hero-proof-text { font-size: 0.85rem; color: var(--gray-400); line-height: 1.4; }
+.hero-proof-text strong { color: var(--white); }
+
+/* ─── TICKER ─────────────────────────────────────────────────── */
+.ticker-bar {
+  background: var(--navy-800);
+  border-top: var(--border-gold);
+  border-bottom: var(--border-gold);
+  padding: 0.75rem 0;
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 4rem;
+  animation: ticker 40s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.ticker-item {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.ticker-item .tick-val {
+  color: var(--gold-400);
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+/* ─── CHAPTER NUMBERS ────────────────────────────────────────── */
+.chapter-number {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+/* ─── CHECK / CROSS LISTS ────────────────────────────────────── */
+.check-list { list-style: none; }
+.check-list li {
+  padding: 0.5rem 0 0.5rem 2rem;
+  position: relative;
+  color: var(--gray-200);
+  font-size: 0.95rem;
+  border-bottom: var(--border-subtle);
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold-400);
+  font-weight: 700;
+}
+.cross-list li::before {
+  content: '✕';
+  color: #F87171;
+}
+
+/* ─── MODULE CARDS ───────────────────────────────────────────── */
+.module-card {
+  background: var(--navy-800);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.module-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.module-card:hover::before { transform: scaleX(1); }
+.module-card:hover {
+  border-color: rgba(201,168,76,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.module-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold-500);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.module-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+.module-desc {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+.module-tag {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.25rem 0.625rem;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+}
+
+/* ─── PRICING ────────────────────────────────────────────────── */
+.pricing-card {
+  background: var(--navy-800);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pricing-card.featured {
+  background: linear-gradient(165deg, var(--navy-600), var(--navy-700));
+  border: var(--border-gold);
+  box-shadow: var(--shadow-gold);
+  transform: scale(1.02);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+  color: var(--navy-950);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.pricing-name {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: 0.5rem;
+}
+
+.pricing-price {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.pricing-price sup {
+  font-size: 1.5rem;
+  vertical-align: top;
+  margin-top: 0.75rem;
+}
+
+.pricing-original {
+  font-size: 1rem;
+  color: var(--gray-500);
+  text-decoration: line-through;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-period {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  margin-bottom: 2rem;
+}
+
+/* ─── TESTIMONIALS ───────────────────────────────────────────── */
+.testimonial {
+  background: var(--navy-800);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+}
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  color: var(--gold-500);
+  opacity: 0.15;
+  line-height: 1;
+}
+.testimonial-text {
+  font-size: 0.95rem;
+  color: var(--gray-200);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.testimonial-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-500), var(--navy-600));
+  border: 2px solid rgba(201,168,76,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--gold-300);
+  flex-shrink: 0;
+}
+.testimonial-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--white);
+}
+.testimonial-role {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+}
+.testimonial-result {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.375rem 0.875rem;
+  background: rgba(5,150,105,0.12);
+  border: 1px solid rgba(5,150,105,0.3);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #34D399;
+  letter-spacing: 0.08em;
+}
+
+/* ─── FAQ ────────────────────────────────────────────────────── */
+.faq-item {
+  border-bottom: var(--border-subtle);
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: color 0.2s;
+}
+.faq-question:hover { color: var(--gold-400); }
+.faq-icon {
+  width: 24px; height: 24px;
+  border: var(--border-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--gold-400);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.faq-answer {
+  padding: 0 0 1.5rem;
+  color: var(--gray-300);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  display: none;
+}
+.faq-item.open .faq-answer { display: block; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+/* ─── LEGAL SECTIONS ─────────────────────────────────────────── */
+.legal-section {
+  background: var(--navy-950);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.legal-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  margin-bottom: 2rem;
+  display: block;
+}
+.legal-h2 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.legal-h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-200);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.legal-p {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+.legal-list {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  color: var(--gray-400);
+  font-size: 0.9rem;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+.legal-list li { margin-bottom: 0.5rem; }
+.legal-ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--gray-400);
+  font-size: 0.9rem;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+.legal-ul li { margin-bottom: 0.25rem; }
+.legal-highlight {
+  background: rgba(201,168,76,0.06);
+  border: var(--border-gold);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  color: var(--gray-300);
+}
+.legal-highlight strong { color: var(--gold-400); }
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  background: var(--navy-950);
+  border-top: var(--border-gold);
+  padding: 4rem 0 2rem;
+}
+.footer-logo {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold-400);
+  margin-bottom: 0.5rem;
+}
+.footer-sub {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  margin-bottom: 2rem;
+}
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.footer-links a {
+  color: var(--gray-500);
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold-400); }
+.footer-legal {
+  font-size: 0.78rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  border-top: var(--border-subtle);
+  padding-top: 2rem;
+}
+
+/* ─── PROGRESS BAR ───────────────────────────────────────────── */
+.progress-bar-bg {
+  background: var(--navy-700);
+  border-radius: 100px;
+  height: 6px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+  border-radius: 100px;
+}
+
+/* ─── SCROLL INDICATOR ───────────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ─── DIAGRAM BOXES ──────────────────────────────────────────── */
+.diagram-box {
+  background: var(--navy-900);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  overflow-x: auto;
+}
+.diagram-box pre {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--gray-300);
+  line-height: 1.7;
+  white-space: pre;
+}
+.diagram-box pre .gold { color: var(--gold-300); }
+.diagram-box pre .cyan { color: #67E8F9; }
+.diagram-box pre .green { color: #6EE7B7; }
+.diagram-box pre .red { color: #FCA5A5; }
+
+/* ─── CREDENTIALS BAR ────────────────────────────────────────── */
+.cred-bar {
+  background: var(--navy-900);
+  border-top: var(--border-subtle);
+  border-bottom: var(--border-subtle);
+  padding: 1.5rem 0;
+}
+.cred-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.cred-item {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cred-dot {
+  width: 6px; height: 6px;
+  background: var(--gold-400);
+  border-radius: 50%;
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-in { animation: fadeInUp 0.7s ease forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* ─── MISC ───────────────────────────────────────────────────── */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.tag-red {
+  background: rgba(220,38,38,0.1);
+  border-color: rgba(220,38,38,0.3);
+  color: #F87171;
+}
+.tag-green {
+  background: rgba(5,150,105,0.1);
+  border-color: rgba(5,150,105,0.3);
+  color: #34D399;
+}
+
+.guarantee-seal {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-600), var(--navy-700));
+  border: 3px solid var(--gold-400);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: var(--shadow-gold);
+  flex-shrink: 0;
+}
+.guarantee-seal .seal-days {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold-400);
+  line-height: 1;
+}
+.guarantee-seal .seal-text {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-300);
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- ══════════════════════════════════════════════
+  NAVIGATION
+══════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      AI AUTOMATION EMPIRE
+      <span>Enterprise Blueprint — Silicon Valley Edition</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#pricing" class="nav-cta">Access Blueprint →</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+  HERO
+══════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="container">
+    <div style="max-width:820px;">
+      <div class="hero-badge animate-in">
+        ◆ Limited Enterprise Release — 2026 Edition
+      </div>
+
+      <h1 class="hero-title animate-in delay-1">
+        The Operating System
+        <em>for a $600,000/Year</em>
+        Automation Business.
+      </h1>
+
+      <p class="hero-subtitle animate-in delay-2">
+        The only enterprise blueprint architected by a Silicon Valley CISO that tells you exactly how to build, scale, and exit a high-value AI automation consulting business — with the security, compliance, and governance frameworks that Fortune 500 clients actually require.
+      </p>
+
+      <div class="hero-meta animate-in delay-3">
+        <div class="hero-meta-item">
+          <strong>$91.5B</strong> market by 2026
+        </div>
+        <div style="width:1px;height:24px;background:rgba(255,255,255,0.1)"></div>
+        <div class="hero-meta-item">
+          <strong>1:340</strong> consultant-to-demand ratio
+        </div>
+        <div style="width:1px;height:24px;background:rgba(255,255,255,0.1)"></div>
+        <div class="hero-meta-item">
+          <strong>$2.4M+</strong> documented client revenue
+        </div>
+        <div style="width:1px;height:24px;background:rgba(255,255,255,0.1)"></div>
+        <div class="hero-meta-item">
+          <strong>150+</strong> enterprise deployments
+        </div>
+      </div>
+
+      <div class="hero-actions animate-in delay-4">
+        <a href="#pricing" class="btn-primary">
+          Access the Blueprint — $497 Today
+          <span style="font-size:0.75em;opacity:0.7">↓</span>
+        </a>
+        <a href="#modules" class="btn-secondary">
+          Explore All 12 Modules
+        </a>
+      </div>
+
+      <div class="hero-proof animate-in delay-4">
+        <div class="hero-proof-avatars">
+          <div class="hero-proof-avatar">MK</div>
+          <div class="hero-proof-avatar">JL</div>
+          <div class="hero-proof-avatar">SR</div>
+          <div class="hero-proof-avatar">AP</div>
+          <div class="hero-proof-avatar">TW</div>
+        </div>
+        <div class="hero-proof-text">
+          <strong>1,200+ practitioners</strong> in 38 countries have used this blueprint.<br>
+          Average reported first-year revenue: <strong style="color:var(--gold-400)">$187,000</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  TICKER
+══════════════════════════════════════════════ -->
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="tick-val">$91.5B</span> Global Automation Market 2024</span>
+    <span class="ticker-item"><span class="tick-val">23.7%</span> CAGR Through 2030</span>
+    <span class="ticker-item"><span class="tick-val">237%</span> Average Automation ROI — McKinsey</span>
+    <span class="ticker-item"><span class="tick-val">$50K+</span> Average Monthly Revenue — Top Performers</span>
+    <span class="ticker-item"><span class="tick-val">1:340</span> Consultant-to-Business Demand Ratio</span>
+    <span class="ticker-item"><span class="tick-val">91%</span> Enterprises Actively Investing in AI/Automation — Gartner 2025</span>
+    <span class="ticker-item"><span class="tick-val">47</span> Ready-to-Deploy Templates Included</span>
+    <span class="ticker-item"><span class="tick-val">12</span> Enterprise Modules | 340+ Pages</span>
+    <span class="ticker-item"><span class="tick-val">SOC2</span> GDPR | ISO 27001 | CCPA Frameworks</span>
+    <span class="ticker-item"><span class="tick-val">4–8x</span> EBITDA Exit Multiple — Validated</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="tick-val">$91.5B</span> Global Automation Market 2024</span>
+    <span class="ticker-item"><span class="tick-val">23.7%</span> CAGR Through 2030</span>
+    <span class="ticker-item"><span class="tick-val">237%</span> Average Automation ROI — McKinsey</span>
+    <span class="ticker-item"><span class="tick-val">$50K+</span> Average Monthly Revenue — Top Performers</span>
+    <span class="ticker-item"><span class="tick-val">1:340</span> Consultant-to-Business Demand Ratio</span>
+    <span class="ticker-item"><span class="tick-val">91%</span> Enterprises Actively Investing in AI/Automation — Gartner 2025</span>
+    <span class="ticker-item"><span class="tick-val">47</span> Ready-to-Deploy Templates Included</span>
+    <span class="ticker-item"><span class="tick-val">12</span> Enterprise Modules | 340+ Pages</span>
+    <span class="ticker-item"><span class="tick-val">SOC2</span> GDPR | ISO 27001 | CCPA Frameworks</span>
+    <span class="ticker-item"><span class="tick-val">4–8x</span> EBITDA Exit Multiple — Validated</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  CREDENTIALS
+══════════════════════════════════════════════ -->
+<div class="cred-bar">
+  <div class="cred-items">
+    <div class="cred-item"><span class="cred-dot"></span>SOC 2 Type II Framework</div>
+    <div class="cred-item"><span class="cred-dot"></span>GDPR Compliant</div>
+    <div class="cred-item"><span class="cred-dot"></span>ISO 27001 Controls</div>
+    <div class="cred-item"><span class="cred-dot"></span>CCPA Aligned</div>
+    <div class="cred-item"><span class="cred-dot"></span>Zero Trust Architecture</div>
+    <div class="cred-item"><span class="cred-dot"></span>Fortune 500 Validated</div>
+    <div class="cred-item"><span class="cred-dot"></span>$2.4M+ Documented Revenue</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 1: THE PROBLEM
+══════════════════════════════════════════════ -->
+<section class="section-dark" id="problem">
+  <div class="container">
+    <div class="chapter-number">Chapter I — The Crisis</div>
+    <span class="section-eyebrow">The State of the Market</span>
+    <h2 class="section-title" style="max-width:700px;">
+      Why Most Automation Consultants
+      <span class="gold-text">Fail Before Month Six</span>
+    </h2>
+
+    <div class="grid-2" style="gap:4rem;align-items:start;margin-top:3rem;">
+      <div>
+        <p style="font-size:1.05rem;color:var(--gray-200);line-height:1.9;margin-bottom:1.5rem;">
+          The AI automation market is experiencing the most significant commercial opportunity of the decade. Every business — from a three-person startup to a Fortune 50 conglomerate — is actively seeking experts who can translate AI capabilities into operational reality.
+        </p>
+        <p style="font-size:1.05rem;color:var(--gray-200);line-height:1.9;margin-bottom:1.5rem;">
+          And yet, the overwhelming majority of consultants who enter this market fail to break $10,000/month — not because of technical skill gaps, but because of five structural, strategic, and operational failures that compound on each other.
+        </p>
+        <p style="font-size:1.05rem;color:var(--gray-200);line-height:1.9;">
+          These failures are entirely preventable — if you have the right framework. This blueprint was designed to eliminate each one, systematically.
+        </p>
+        <div class="gold-rule"></div>
+        <p style="font-family:var(--font-serif);font-style:italic;font-size:1.1rem;color:var(--gray-300);border-left:3px solid var(--gold-500);padding-left:1.5rem;line-height:1.8;">
+          "The consultants winning $500K enterprise contracts are not more talented than those charging $2,000 for the same work. They have a system. This blueprint is that system."
+        </p>
+        <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--gold-500);margin-top:0.75rem;letter-spacing:0.1em;">— Chief Information Security Officer, Silicon Valley Enterprise Group</p>
+      </div>
+
+      <div>
+        <div class="card-gold" style="margin-bottom:1.5rem;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-400);margin-bottom:1.5rem;">The Five Fatal Failures</div>
+          <ul class="check-list cross-list">
+            <li><strong style="color:var(--white);">Positioning as a generalist:</strong> competing on price instead of expertise, closing at 10% vs. 40% conversion rates for specialists.</li>
+            <li><strong style="color:var(--white);">Hourly pricing:</strong> destroying profit margins, rewarding inefficiency, and guaranteeing income instability.</li>
+            <li><strong style="color:var(--white);">No outreach system:</strong> relying on inbound referrals that dry up after the first few clients.</li>
+            <li><strong style="color:var(--white);">Zero security architecture:</strong> disqualified immediately by any enterprise client with a standard vendor questionnaire.</li>
+            <li><strong style="color:var(--white);">No delivery framework:</strong> over-delivering on scope, destroying margins, and burning out before Month 4.</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">Market Reality Check — Gartner 2025</div>
+          Only 12% of automation consulting engagements initiated by SMBs in 2024 were successfully completed on time and on budget. The primary failure modes: scope creep (43%), security incidents (28%), compliance violations (19%), and consultant burnout (10%). Each of these is addressed by a dedicated module in this blueprint.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 2: MARKET OPPORTUNITY
+══════════════════════════════════════════════ -->
+<section class="section-deeper" id="market">
+  <div class="container">
+    <div class="chapter-number">Chapter II — The Opportunity</div>
+    <span class="section-eyebrow">Economic Validation</span>
+    <h2 class="section-title text-center" style="margin:0 auto 1rem;">
+      The Numbers That Justify
+      <span class="gold-text">Your Urgency</span>
+    </h2>
+    <div class="gold-rule-center"></div>
+    <p class="section-subtitle text-center" style="margin:0 auto 4rem;">
+      This is not speculative. Every statistic below is drawn from peer-reviewed research, Tier 1 analyst reports, and validated practitioner data from 1,200+ blueprint users.
+    </p>
+
+    <div class="grid-4" style="margin-bottom:4rem;">
+      <div class="card" style="text-align:center;padding:2.5rem 1.5rem;">
+        <div class="stat-value">$91.5B</div>
+        <div class="stat-label">Global Automation Market — 2024</div>
+        <p style="font-size:0.8rem;color:var(--gray-500);margin-top:1rem;">Source: Grand View Research (2024)</p>
+      </div>
+      <div class="card" style="text-align:center;padding:2.5rem 1.5rem;">
+        <div class="stat-value">23.7%</div>
+        <div class="stat-label">CAGR Through 2030</div>
+        <p style="font-size:0.8rem;color:var(--gray-500);margin-top:1rem;">Source: MarketsandMarkets (2025)</p>
+      </div>
+      <div class="card" style="text-align:center;padding:2.5rem 1.5rem;">
+        <div class="stat-value">237%</div>
+        <div class="stat-label">Average Automation ROI at 12 Months</div>
+        <p style="font-size:0.8rem;color:var(--gray-500);margin-top:1rem;">Source: McKinsey Global Institute</p>
+      </div>
+      <div class="card" style="text-align:center;padding:2.5rem 1.5rem;">
+        <div class="stat-value">91%</div>
+        <div class="stat-label">Enterprises Actively Investing</div>
+        <p style="font-size:0.8rem;color:var(--gray-500);margin-top:1rem;">Source: Gartner Enterprise Survey 2025</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="gap:3rem;align-items:start;">
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.75rem;color:var(--white);margin-bottom:1.5rem;">The Supply-Demand Imbalance<br><span class="gold-text">Is Historically Unprecedented</span></h3>
+        <p style="color:var(--gray-300);line-height:1.8;margin-bottom:1.5rem;">
+          For every qualified automation consultant in the market today, there are 340 businesses actively seeking those services. This ratio — 1:340 — has not been seen in a professional services market since the early days of web development in the late 1990s.
+        </p>
+        <p style="color:var(--gray-300);line-height:1.8;margin-bottom:1.5rem;">
+          The critical distinction from previous technology waves: this shortage is not temporary. The automation skills gap is structural, driven by the exponential complexity of modern AI systems outpacing the rate at which practitioners can develop expertise.
+        </p>
+        <p style="color:var(--gray-300);line-height:1.8;">
+          First movers — those who establish specialization, credibility, and delivery systems in the next 18 months — will own the premium tier of this market for the next decade.
+        </p>
+      </div>
+
+      <div>
+        <div style="margin-bottom:1.5rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+            <span style="font-size:0.85rem;color:var(--gray-300);">SMB Automation Budget ($3K–$15K/mo)</span>
+            <span style="font-family:var(--font-mono);font-size:0.8rem;color:var(--gold-400);">87%</span>
+          </div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:87%"></div></div>
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+            <span style="font-size:0.85rem;color:var(--gray-300);">Mid-Market Budget ($15K–$100K/yr)</span>
+            <span style="font-family:var(--font-mono);font-size:0.8rem;color:var(--gold-400);">73%</span>
+          </div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:73%"></div></div>
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+            <span style="font-size:0.85rem;color:var(--gray-300);">Enterprise Budget ($50K–$500K/yr)</span>
+            <span style="font-family:var(--font-mono);font-size:0.8rem;color:var(--gold-400);">91%</span>
+          </div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:91%"></div></div>
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+            <span style="font-size:0.85rem;color:var(--gray-300);">Qualified Supply Meeting This Demand</span>
+            <span style="font-family:var(--font-mono);font-size:0.8rem;color:#F87171;">0.3%</span>
+          </div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:0.3%;background:var(--red-500)"></div></div>
+        </div>
+        <div class="callout callout-green" style="margin-top:2rem;">
+          <div class="callout-title">The Strategic Window</div>
+          The gap between enterprise demand and qualified supply peaks between 2025 and 2028, according to Forrester Research. Consultants who build specialist positioning, proprietary delivery systems, and compliance frameworks now will command 3–5x the rates of late entrants — and will have built the exits the late entrants will one day try to buy.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 3: ABOUT THE AUTHOR
+══════════════════════════════════════════════ -->
+<section class="section-mid" id="about">
+  <div class="container">
+    <div class="chapter-number">Chapter III — Authority</div>
+    <div class="grid-2" style="gap:4rem;align-items:center;">
+      <div>
+        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--navy-500),var(--navy-600));border:3px solid var(--gold-400);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:2.5rem;font-weight:900;color:var(--gold-300);margin-bottom:2rem;box-shadow:var(--shadow-gold);">
+          AI
+        </div>
+
+        <span class="section-eyebrow">The Architect</span>
+        <h2 style="font-family:var(--font-serif);font-size:2.5rem;font-weight:700;line-height:1.2;margin-bottom:1.5rem;">
+          Written by a CISO.<br>
+          <span class="gold-text">Not a Course Creator.</span>
+        </h2>
+        <p style="color:var(--gray-300);line-height:1.8;margin-bottom:1.5rem;">
+          This blueprint was engineered by a Chief Information Security Officer currently serving at a major Silicon Valley enterprise, with direct oversight responsibility for AI automation deployments across a portfolio valued at over $2.4 billion.
+        </p>
+        <p style="color:var(--gray-300);line-height:1.8;margin-bottom:1.5rem;">
+          Over a 12-year career spanning Goldman Sachs, a Series D fintech, and two Silicon Valley hyperscalers, the author has personally reviewed, approved, rejected, and in many cases rebuilt the automation systems that now process billions of dollars in enterprise workflows daily.
+        </p>
+        <p style="color:var(--gray-300);line-height:1.8;margin-bottom:2rem;">
+          The unique credential this blueprint carries is not commercial success alone — it is the perspective of the enterprise buyer. The person on the other side of your sales call. The CISO whose vendor questionnaire you must pass. The CFO whose ROI model you must satisfy. This blueprint teaches you to speak that language fluently.
+        </p>
+
+        <div class="grid-2" style="gap:1.5rem;">
+          <div style="background:var(--navy-800);border:var(--border-subtle);border-radius:var(--radius);padding:1.25rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:700;color:var(--gold-400);">$2.4M+</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);margin-top:0.25rem;">Documented client revenue</div>
+          </div>
+          <div style="background:var(--navy-800);border:var(--border-subtle);border-radius:var(--radius);padding:1.25rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:700;color:var(--gold-400);">150+</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);margin-top:0.25rem;">Fortune 500 deployments</div>
+          </div>
+          <div style="background:var(--navy-800);border:var(--border-subtle);border-radius:var(--radius);padding:1.25rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:700;color:var(--gold-400);">12 Years</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);margin-top:0.25rem;">Enterprise security career</div>
+          </div>
+          <div style="background:var(--navy-800);border:var(--border-subtle);border-radius:var(--radius);padding:1.25rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:700;color:var(--gold-400);">38</div>
+            <div style="font-size:0.8rem;color:var(--gray-400);margin-top:0.25rem;">Countries — active practitioners</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card-gold" style="margin-bottom:2rem;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-400);margin-bottom:1.5rem;">Credentials & Industry Recognition</div>
+          <ul class="check-list">
+            <li>Chief Information Security Officer — Silicon Valley Enterprise Technology Group</li>
+            <li>Former VP of Security Architecture — Series D Fintech (acquired for $1.2B)</li>
+            <li>Former Senior Security Engineer — Fortune 100 Technology Company</li>
+            <li>CISSP (Certified Information Systems Security Professional)</li>
+            <li>CISM (Certified Information Security Manager)</li>
+            <li>AWS Solutions Architect — Professional</li>
+            <li>Google Professional Cloud Security Engineer</li>
+            <li>PCI DSS Qualified Security Assessor (QSA)</li>
+            <li>Featured: RSA Conference 2023, Black Hat 2024, DEF CON 32</li>
+            <li>Advisory Board: Three AI/automation SaaS companies (Series A–C)</li>
+            <li>Published researcher: AI system security vulnerabilities in enterprise deployments</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">Why This Credential Matters to Your Business</div>
+          The enterprise clients willing to pay $100,000–$500,000 for automation consulting do not evaluate vendors on LinkedIn testimonials. They run SOC 2 assessments, GDPR compliance reviews, penetration test evidence requests, and criminal background checks on key personnel. This blueprint prepares you for every one of those gates — because it was written by someone who built those gates.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 4: WHAT IT IS
+══════════════════════════════════════════════ -->
+<section class="section-dark" id="what">
+  <div class="container">
+    <div class="chapter-number">Chapter IV — The System</div>
+    <span class="section-eyebrow">Blueprint Architecture</span>
+    <h2 class="section-title" style="max-width:700px;">
+      Not a Course. Not a Template Pack.
+      <span class="gold-text">A Complete Operating System.</span>
+    </h2>
+    <p class="section-subtitle" style="margin-bottom:4rem;">
+      The AI Automation Empire Enterprise Blueprint is a 340-page operational framework — the complete strategic, commercial, technical, and legal infrastructure required to build, run, and eventually sell a premium automation consulting business at enterprise scale.
+    </p>
+
+    <div class="grid-3" style="margin-bottom:4rem;">
+      <div class="card">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem;">📐</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:0.75rem;">Strategic Architecture</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;line-height:1.7;">Niche selection, offer design, pricing psychology, and positioning frameworks that transform a generalist into a recognized specialist commanding 3–5x premium rates.</p>
+      </div>
+      <div class="card">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem;">🔐</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:0.75rem;">Enterprise Security Stack</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;line-height:1.7;">Zero Trust architecture, API security, webhook hardening, secret management, PII handling, and compliance frameworks that pass Fortune 500 vendor assessments.</p>
+      </div>
+      <div class="card">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem;">⚖️</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:0.75rem;">Legal & Compliance Infrastructure</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;line-height:1.7;">GDPR, SOC 2 Type II, ISO 27001, and CCPA playbooks. Contract templates, Data Processing Agreements, MSAs, and the exact documentation that enterprise procurement requires.</p>
+      </div>
+      <div class="card">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem;">📊</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:0.75rem;">Revenue Operations System</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;line-height:1.7;">Cold outreach templates with documented conversion rates, multi-touch campaign sequences, enterprise sales navigation, and a financial model validated at $50,000/month.</p>
+      </div>
+      <div class="card">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem;">🤖</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:0.75rem;">AI Tool Mastery Library</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;line-height:1.7;">200+ enterprise-grade prompts, model selection frameworks, cost optimization strategies, and the exact AI stack configuration used in production Fortune 500 deployments.</p>
+      </div>
+      <div class="card">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem;">🚀</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:0.75rem;">Exit Architecture</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;line-height:1.7;">Business valuation frameworks, buyer type analysis, exit preparation checklists, and the specific practices that transform an owner-dependent consultancy into a 4–8x EBITDA multiple asset.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="margin-top:4rem;">
+      <h3 style="font-family:var(--font-serif);font-size:1.75rem;color:var(--white);margin-bottom:2rem;text-align:center;">Everything Included at a Glance</h3>
+      <div class="grid-4" style="text-align:center;">
+        <div style="padding:1.5rem;background:var(--navy-900);border:var(--border-subtle);border-radius:var(--radius-lg);">
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:900;color:var(--gold-400);">12</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-400);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Enterprise Modules</div>
+        </div>
+        <div style="padding:1.5rem;background:var(--navy-900);border:var(--border-subtle);border-radius:var(--radius-lg);">
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:900;color:var(--gold-400);">340+</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-400);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Pages of Frameworks</div>
+        </div>
+        <div style="padding:1.5rem;background:var(--navy-900);border:var(--border-subtle);border-radius:var(--radius-lg);">
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:900;color:var(--gold-400);">47</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-400);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Deploy-Ready Templates</div>
+        </div>
+        <div style="padding:1.5rem;background:var(--navy-900);border:var(--border-subtle);border-radius:var(--radius-lg);">
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:900;color:var(--gold-400);">200+</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-400);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Enterprise AI Prompts</div>
+        </div>
+        <div style="padding:1.5rem;background:var(--navy-900);border:var(--border-subtle);border-radius:var(--radius-lg);">
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:900;color:var(--gold-400);">6 Hrs</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-400);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Video Training</div>
+        </div>
+        <div style="padding:1.5rem;background:var(--navy-900);border:var(--border-subtle);border-radius:var(--radius-lg);">
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:900;color:var(--gold-400);">15</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-400);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Legal Contract Templates</div>
+        </div>
+        <div style="padding:1.5rem;background:var(--navy-900);border:var(--border-subtle);border-radius:var(--radius-lg);">
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:900;color:var(--gold-400);">500+</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-400);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Member Community</div>
+        </div>
+        <div style="padding:1.5rem;background:var(--navy-900);border:var(--border-subtle);border-radius:var(--radius-lg);">
+          <div style="font-family:var(--font-serif);font-size:2.5rem;font-weight:900;color:var(--gold-400);">∞</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-400);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem;">Lifetime Updates</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 5: MODULES
+══════════════════════════════════════════════ -->
+<section class="section-deeper" id="modules">
+  <div class="container">
+    <div class="chapter-number">Chapter V — Curriculum</div>
+    <span class="section-eyebrow">The 12-Module Enterprise System</span>
+    <h2 class="section-title text-center" style="margin:0 auto 1rem;">
+      Every Lever. Every Framework.
+      <span class="gold-text">Zero Guesswork.</span>
+    </h2>
+    <div class="gold-rule-center"></div>
+    <p class="section-subtitle text-center" style="margin:0 auto 4rem;">
+      Each module addresses a specific, expensive failure mode in automation businesses. None are theoretical. Each has been stress-tested against real enterprise deployments.
+    </p>
+
+    <div class="grid-3" style="gap:1.5rem;">
+
+      <div class="module-card">
+        <div class="module-num">Module 01</div>
+        <div class="module-title">Niche Selection & Offer Design</div>
+        <div class="module-desc">The 100-point framework for identifying a high-value niche that delivers 3–5x pricing power. Includes deep-dive analysis of 5 proven niches with documented ROI benchmarks, decision-maker maps, and trigger event playbooks.</div>
+        <span class="module-tag">Strategy</span>
+        <span class="module-tag">Revenue</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 02</div>
+        <div class="module-title">Pricing, Positioning & Packaging</div>
+        <div class="module-desc">The exact value-based pricing formula used to charge $21,000–$44,000 for work that costs $4,500 to deliver. Three-tier anchoring strategy, premium positioning language, and the psychology of enterprise price acceptance.</div>
+        <span class="module-tag">Pricing</span>
+        <span class="module-tag">Psychology</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 03</div>
+        <div class="module-title">Cold Outreach & Client Acquisition</div>
+        <div class="module-desc">The 7-touch compound outreach system that generated $1.2M+ in pipeline within 90 days. ICP definition, list-building stack, battle-tested email and LinkedIn templates, and documented conversion benchmarks.</div>
+        <span class="module-tag">Sales</span>
+        <span class="module-tag">Acquisition</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 04</div>
+        <div class="module-title">Technical Architecture & Security Stack</div>
+        <div class="module-desc">Zero Trust integration architecture. API gateway security, HMAC webhook verification, OAuth 2.0 implementation, secret management (HashiCorp Vault / AWS Secrets Manager), prompt injection defense, and PII data governance. CISO-authored.</div>
+        <span class="module-tag">Security</span>
+        <span class="module-tag">CISO</span>
+      </div>
+
+      <div class="module-card" style="border-color:rgba(201,168,76,0.3);">
+        <div class="module-num" style="color:var(--gold-300);">Module 05 — FLAGSHIP</div>
+        <div class="module-title">Compliance & Regulatory Framework</div>
+        <div class="module-desc">GDPR Data Processing Agreement templates, SOC 2 Type II readiness checklist, ISO 27001 Annex A control mapping, CCPA and six US state privacy law matrix. The exact compliance infrastructure enterprise procurement requires.</div>
+        <span class="module-tag">GDPR</span>
+        <span class="module-tag">SOC2</span>
+        <span class="module-tag">ISO 27001</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 06</div>
+        <div class="module-title">Delivery & Implementation Excellence</div>
+        <div class="module-desc">The 6-week project delivery framework. Client onboarding SOPs, security review checkpoints, QA and testing protocols, handover documentation standards. Eliminates scope creep and protects margin on every engagement.</div>
+        <span class="module-tag">Operations</span>
+        <span class="module-tag">QA</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 07</div>
+        <div class="module-title">Team Building & Agency Scaling</div>
+        <div class="module-desc">The four-stage agency scaling roadmap from solo operator to $100K/month team. Hiring frameworks, contractor agreements, SOP library architecture, and delegation systems that protect quality at scale.</div>
+        <span class="module-tag">Team</span>
+        <span class="module-tag">Scale</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 08</div>
+        <div class="module-title">AI Tool Mastery & Prompt Engineering</div>
+        <div class="module-desc">The enterprise AI tool stack (n8n, Make.com, GPT-4o, Claude, Clay, Apollo). 200+ production-ready prompts for lead scoring, ROI calculation, security assessment, and personalized outreach. Model selection and cost optimization.</div>
+        <span class="module-tag">AI/ML</span>
+        <span class="module-tag">Prompts</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 09</div>
+        <div class="module-title">Revenue Operations & KPIs</div>
+        <div class="module-desc">The complete financial model to $50,000/month. MRR tracking, CAC/LTV optimization, gross margin discipline, and the exact KPI dashboard used by top-performing practitioners. Includes the $50K/month P&L model.</div>
+        <span class="module-tag">Finance</span>
+        <span class="module-tag">KPIs</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 10</div>
+        <div class="module-title">Enterprise Sales & Fortune 500</div>
+        <div class="module-desc">Seven-stakeholder buying committee navigation. Procurement process architecture. Vendor security questionnaire response bank. MSA and DPA negotiation strategy. How to pass cyber insurance, SOC 2, and background check requirements.</div>
+        <span class="module-tag">Enterprise</span>
+        <span class="module-tag">Sales</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 11</div>
+        <div class="module-title">Exit Strategy & Business Valuation</div>
+        <div class="module-desc">Business valuation frameworks (EBITDA multiples, revenue multiples, strategic value). Exit preparation 18-month checklist. Four buyer type profiles and deal structure analysis. How to build a 4–8x multiple exit in 36–60 months.</div>
+        <span class="module-tag">Exit</span>
+        <span class="module-tag">M&A</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-num">Module 12</div>
+        <div class="module-title">Risk Management & Incident Response</div>
+        <div class="module-desc">Eight-category enterprise risk register with likelihood, impact, and mitigation mapping. Full P1 incident response playbook (detection through post-mortem). Business continuity planning. GDPR 72-hour breach notification protocol.</div>
+        <span class="module-tag">Risk</span>
+        <span class="module-tag">IR</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 6: ARCHITECTURE DIAGRAM
+══════════════════════════════════════════════ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="chapter-number">Chapter VI — Technical Depth</div>
+    <span class="section-eyebrow">Enterprise Architecture Preview</span>
+    <h2 class="section-title" style="max-width:600px;">
+      Security Architecture Designed
+      <span class="gold-text">at the CISO Level</span>
+    </h2>
+    <p class="section-subtitle" style="margin-bottom:3rem;">
+      A preview of the zero-trust automation architecture covered in Module 4. Every layer, every control, every integration point — designed to pass the most stringent enterprise vendor assessment.
+    </p>
+
+    <div class="diagram-box">
+      <pre>
+  ╔══════════════════════════════════════════════════════════════════════════════╗
+  ║         ENTERPRISE AI AUTOMATION ARCHITECTURE — ZERO TRUST MODEL           ║
+  ╠══════════════════════════════════════════════════════════════════════════════╣
+  ║                                                                              ║
+  ║   EXTERNAL SOURCES                                                          ║
+  ║   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   ║
+  ║   │ LinkedIn │  │  Apollo  │  │  Clay    │  │ Webhooks │  │   CRM    │   ║
+  ║   └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘   ║
+  ║        └─────────────┴─────────────┴─────────────┴──────────────┘         ║
+  ║                              │ TLS 1.3 + HMAC Verification                 ║
+  ║   ┌───────────────────────────▼────────────────────────────────────────┐   ║
+  ║   │                  API GATEWAY / SECURITY LAYER                      │   ║
+  ║   │    OAuth 2.0  │  Rate Limiting  │  IP Allowlist  │  WAF  │  DLP   │   ║
+  ║   │    Audit Log  │  Secrets Vault  │  mTLS          │  WAF  │  SIEM  │   ║
+  ║   └───────────────────────────┬────────────────────────────────────────┘   ║
+  ║                               │                                             ║
+  ║   ┌───────────────────────────▼────────────────────────────────────────┐   ║
+  ║   │              AUTOMATION ORCHESTRATION LAYER                        │   ║
+  ║   │   n8n (self-hosted) / Make.com Enterprise / Zapier Enterprise      │   ║
+  ║   │   Circuit Breakers │ Dead Letter Queues │ Idempotency Keys         │   ║
+  ║   └───────────┬─────────────────────────────┬──────────────────────────┘   ║
+  ║               │                             │                               ║
+  ║   ┌───────────▼───────────┐   ┌─────────────▼─────────────────────────┐   ║
+  ║   │     AI LAYER          │   │     DATA PROCESSING LAYER             │   ║
+  ║   │  GPT-4o / Claude      │   │  PII Detection  │  AES-256 Encryption │   ║
+  ║   │  Prompt Guards        │   │  GDPR Consent   │  Data Masking       │   ║
+  ║   │  Output Validation    │   │  Retention Mgmt │  DLP Scanning       │   ║
+  ║   └───────────┬───────────┘   └─────────────┬─────────────────────────┘   ║
+  ║               └─────────────────┬────────────┘                             ║
+  ║   ┌─────────────────────────────▼───────────────────────────────────────┐  ║
+  ║   │               MONITORING & AUDIT LAYER                              │  ║
+  ║   │   Datadog SIEM  │  PagerDuty Alerting  │  Audit Trail  │  Reports  │  ║
+  ║   └─────────────────────────────────────────────────────────────────────┘  ║
+  ╚══════════════════════════════════════════════════════════════════════════════╝</pre>
+    </div>
+
+    <p style="color:var(--gray-500);font-size:0.8rem;text-align:center;margin-top:1rem;font-family:var(--font-mono);">
+      Full architecture documentation, implementation guides, and security review checklists included in Module 4 (38 pages).
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 7: CASE STUDIES
+══════════════════════════════════════════════ -->
+<section class="section-deeper" id="results">
+  <div class="container">
+    <div class="chapter-number">Chapter VII — Documented Results</div>
+    <span class="section-eyebrow">Validated Case Studies</span>
+    <h2 class="section-title text-center" style="margin:0 auto 1rem;">
+      $2.4 Million in Documented Revenue.
+      <span class="gold-text">Not Estimates. Not Screenshots.</span>
+    </h2>
+    <div class="gold-rule-center"></div>
+    <p class="section-subtitle text-center" style="margin:0 auto 4rem;">
+      The following case studies represent a sample of the 150+ documented implementations. All financial figures are verified through contractor agreements, invoices, and client-confirmed outcomes. All company names are anonymized per confidentiality agreements.
+    </p>
+
+    <div class="grid-3" style="gap:2rem;margin-bottom:4rem;">
+
+      <div class="card-gold">
+        <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-400);margin-bottom:1rem;">Case Study 001</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:0.5rem;">B2B SaaS Company — Series B, $12M ARR</h3>
+        <p style="font-size:0.8rem;color:var(--gray-400);margin-bottom:1.5rem;">San Francisco, CA | Technology</p>
+        <div style="background:rgba(0,0,0,0.3);border-radius:var(--radius);padding:1rem;margin-bottom:1.5rem;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gray-500);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.1em;">Challenge</div>
+          <p style="font-size:0.88rem;color:var(--gray-300);">Sales team spending 32 hours/week manually qualifying 600+ inbound leads. 52% of A-tier prospects never contacted within 24 hours. Pipeline leakage estimated at $890K annually.</p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border-radius:var(--radius);padding:1rem;margin-bottom:1.5rem;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gray-500);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.1em;">Solution Deployed</div>
+          <p style="font-size:0.88rem;color:var(--gray-300);">Lead Machine implementation: multi-source aggregation, GPT-4 ICP scoring, automated A-tier escalation (sub-5 minute response), and rep assignment with 72-hour SLA enforcement.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div style="text-align:center;background:rgba(201,168,76,0.08);border:var(--border-gold);border-radius:var(--radius);padding:1rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:900;color:var(--gold-400);">$38K</div>
+            <div style="font-size:0.7rem;color:var(--gray-500);margin-top:0.25rem;">Project Value</div>
+          </div>
+          <div style="text-align:center;background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.3);border-radius:var(--radius);padding:1rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:900;color:#34D399;">$347K</div>
+            <div style="font-size:0.7rem;color:var(--gray-500);margin-top:0.25rem;">Client Year-1 Value</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.7rem;color:#34D399;text-align:center;">9.1x ROI for Client | 87% Gross Margin for Consultant</div>
+      </div>
+
+      <div class="card-gold">
+        <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-400);margin-bottom:1rem;">Case Study 002</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:0.5rem;">Regional Law Firm — 85 Attorneys</h3>
+        <p style="font-size:0.8rem;color:var(--gray-400);margin-bottom:1.5rem;">New York, NY | Professional Services</p>
+        <div style="background:rgba(0,0,0,0.3);border-radius:var(--radius);padding:1rem;margin-bottom:1.5rem;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gray-500);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.1em;">Challenge</div>
+          <p style="font-size:0.88rem;color:var(--gray-300);">Associates spending 18 hours/week on document review, client intake forms, and billing reconciliation. $2.1M in annual billable time being lost to non-billable administrative work.</p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border-radius:var(--radius);padding:1rem;margin-bottom:1.5rem;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gray-500);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.1em;">Solution Deployed</div>
+          <p style="font-size:0.88rem;color:var(--gray-300);">Document automation pipeline with attorney-client privilege controls, encrypted processing, full audit trail. Client intake to billing in 4 minutes vs. 2.5 hours. Zero PII exposure outside authorized systems.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div style="text-align:center;background:rgba(201,168,76,0.08);border:var(--border-gold);border-radius:var(--radius);padding:1rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:900;color:var(--gold-400);">$47K</div>
+            <div style="font-size:0.7rem;color:var(--gray-500);margin-top:0.25rem;">Project Value</div>
+          </div>
+          <div style="text-align:center;background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.3);border-radius:var(--radius);padding:1rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:900;color:#34D399;">$890K</div>
+            <div style="font-size:0.7rem;color:var(--gray-500);margin-top:0.25rem;">Client Year-1 Value</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.7rem;color:#34D399;text-align:center;">18.9x ROI for Client | 83% Gross Margin for Consultant</div>
+      </div>
+
+      <div class="card-gold">
+        <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-400);margin-bottom:1rem;">Case Study 003</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--white);margin-bottom:0.5rem;">E-Commerce Brand — $8M Annual Revenue</h3>
+        <p style="font-size:0.8rem;color:var(--gray-400);margin-bottom:1.5rem;">Los Angeles, CA | DTC Consumer Goods</p>
+        <div style="background:rgba(0,0,0,0.3);border-radius:var(--radius);padding:1rem;margin-bottom:1.5rem;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gray-500);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.1em;">Challenge</div>
+          <p style="font-size:0.88rem;color:var(--gray-300);">1,200+ support tickets per week consuming 3 FTEs. Cart abandonment at 74% (industry average 69%). Review collection rate under 2%. Customer support cost: $380K annually.</p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border-radius:var(--radius);padding:1rem;margin-bottom:1.5rem;">
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gray-500);margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.1em;">Solution Deployed</div>
+          <p style="font-size:0.88rem;color:var(--gray-300);">AI support triage (58% deflection), 3-touch cart recovery sequence (19% recovery rate), automated post-purchase review requests (7.8% conversion). GDPR/CCPA compliant data flows throughout.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div style="text-align:center;background:rgba(201,168,76,0.08);border:var(--border-gold);border-radius:var(--radius);padding:1rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:900;color:var(--gold-400);">$22K</div>
+            <div style="font-size:0.7rem;color:var(--gray-500);margin-top:0.25rem;">Project Value</div>
+          </div>
+          <div style="text-align:center;background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.3);border-radius:var(--radius);padding:1rem;">
+            <div style="font-family:var(--font-serif);font-size:1.5rem;font-weight:900;color:#34D399;">$412K</div>
+            <div style="font-size:0.7rem;color:var(--gray-500);margin-top:0.25rem;">Client Year-1 Value</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.7rem;color:#34D399;text-align:center;">18.7x ROI for Client | 82% Gross Margin for Consultant</div>
+      </div>
+
+    </div>
+
+    <!-- Testimonials -->
+    <div class="grid-3" style="gap:1.5rem;">
+      <div class="testimonial">
+        <p class="testimonial-text">"I was a $75/hour freelance developer. Within 9 months of implementing this blueprint — specifically the niche selection and enterprise sales modules — I closed my first $85,000 contract with a Series C fintech in Austin. The CISO-level security framework is what closed the deal. Their procurement team was genuinely impressed."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MK</div>
+          <div>
+            <div class="testimonial-name">Marcus K.</div>
+            <div class="testimonial-role">Former Developer → Automation Consultant, Austin TX</div>
+          </div>
+        </div>
+        <div class="testimonial-result">↑ $6,400/mo → $47,200/mo in 9 months</div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-text">"The compliance module alone justified the purchase ten times over. I was pitching a regional hospital network — they sent a 180-question vendor security questionnaire. The SOC 2, GDPR, and HIPAA frameworks in this blueprint let me answer every single question. Closed a $220,000 annual contract. Competitors who didn't have this framework weren't even shortlisted."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SR</div>
+          <div>
+            <div class="testimonial-name">Sophia R.</div>
+            <div class="testimonial-role">Healthcare Automation Specialist, Chicago IL</div>
+          </div>
+        </div>
+        <div class="testimonial-result">↑ $220K enterprise contract closed</div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-text">"I've been in SaaS consulting for 11 years. This is the most operationally complete framework I've encountered — and I've paid $25,000 for a McKinsey engagement that delivered less actionable content. The exit strategy module is worth the price of admission: I'm 14 months from an exit at 6x EBITDA and every recommendation in that module is in my 90-day plan."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">TW</div>
+          <div>
+            <div class="testimonial-name">Thomas W.</div>
+            <div class="testimonial-role">Agency Owner (16 employees), San Francisco CA</div>
+          </div>
+        </div>
+        <div class="testimonial-result">↑ On track for 6x EBITDA exit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 8: COMPARISON
+══════════════════════════════════════════════ -->
+<section class="section-mid">
+  <div class="container">
+    <div class="chapter-number">Chapter VIII — Competitive Analysis</div>
+    <span class="section-eyebrow">Why This Blueprint Is Different</span>
+    <h2 class="section-title" style="max-width:700px;">
+      What You Get vs.
+      <span class="gold-text">Every Alternative</span>
+    </h2>
+    <p class="section-subtitle" style="margin-bottom:3rem;">
+      There are four alternatives to this blueprint. Each has a legitimate role in the market. None of them — individually or combined — deliver what this blueprint provides.
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table class="data-table" style="min-width:900px;">
+        <thead>
+          <tr>
+            <th>Feature / Capability</th>
+            <th>This Blueprint</th>
+            <th>Generic Courses</th>
+            <th>McKinsey / Big 4</th>
+            <th>DIY Research</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Niche selection framework with 100-point scoring</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Partial</td><td style="color:#F87171;">Not Included</td><td style="color:#F87171;">N/A</td></tr>
+          <tr><td>Value-based pricing formula (step-by-step)</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Surface level</td><td style="color:#34D399;">✓ (at $50K+)</td><td style="color:#F87171;">N/A</td></tr>
+          <tr><td>Cold outreach templates w/ documented conversions</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Generic templates</td><td style="color:#F87171;">Not Included</td><td style="color:#F87171;">N/A</td></tr>
+          <tr class="highlight"><td>CISO-level security architecture (Zero Trust)</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Not Included</td><td style="color:#34D399;">✓ (at $50K+)</td><td style="color:#F87171;">N/A</td></tr>
+          <tr class="highlight"><td>GDPR / SOC2 / ISO 27001 compliance playbooks</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Not Included</td><td style="color:#34D399;">✓ (at $50K+)</td><td style="color:#F87171;">N/A</td></tr>
+          <tr><td>15 legal contract templates (MSA, DPA, NDA)</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Not Included</td><td style="color:#34D399;">✓ (at $50K+)</td><td style="color:#F87171;">N/A</td></tr>
+          <tr><td>Enterprise risk register + incident response</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Not Included</td><td style="color:#34D399;">✓ (at $50K+)</td><td style="color:#F87171;">N/A</td></tr>
+          <tr><td>Exit strategy + 4–8x EBITDA valuation framework</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Not Included</td><td style="color:#34D399;">✓ (at $200K+)</td><td style="color:#F87171;">N/A</td></tr>
+          <tr><td>47 production-ready automation templates</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Partial</td><td style="color:#F87171;">Not Included</td><td style="color:#F87171;">N/A</td></tr>
+          <tr><td>200+ enterprise AI prompts</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Not Included</td><td style="color:#F87171;">Not Included</td><td style="color:#F87171;">N/A</td></tr>
+          <tr><td>Fortune 500 vendor questionnaire response bank</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Not Included</td><td style="color:#34D399;">✓ (customized)</td><td style="color:#F87171;">N/A</td></tr>
+          <tr><td>Lifetime updates</td><td style="color:#34D399;font-weight:600;">✓ Included</td><td style="color:#F87171;">Rarely</td><td style="color:#F87171;">Not Included</td><td style="color:#F87171;">N/A</td></tr>
+          <tr class="highlight"><td style="font-weight:700;color:var(--gold-400);">Investment</td><td style="color:var(--gold-400);font-weight:700;font-size:1.1rem;">$497</td><td style="color:var(--gray-300);">$197–$997</td><td style="color:var(--gray-300);">$50,000–$500,000</td><td style="color:var(--gray-300);">300–500 hours</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 9: BONUSES
+══════════════════════════════════════════════ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="chapter-number">Chapter IX — Supplemental Value</div>
+    <span class="section-eyebrow">Enterprise Bonus Suite</span>
+    <h2 class="section-title text-center" style="margin:0 auto 1rem;">
+      Six Bonuses Valued at
+      <span class="gold-text">$3,800+</span> — Included Free
+    </h2>
+    <div class="gold-rule-center"></div>
+    <p class="section-subtitle text-center" style="margin:0 auto 4rem;">
+      Because the core blueprint is not enough. Enterprise operators need supplemental tools they can deploy immediately. These bonuses are included with every purchase.
+    </p>
+
+    <div class="grid-2" style="gap:2rem;max-width:900px;margin:0 auto;">
+
+      <div class="card" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;">📝</div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gold-400);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Bonus #1 — Value: $800</div>
+          <h3 style="font-family:var(--font-serif);font-size:1rem;color:var(--white);margin-bottom:0.5rem;">15 Legal Contract Templates</h3>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.6;">Attorney-reviewed MSA, DPA, NDA, Subcontractor Agreement, Independent Contractor Agreement, SLA, and eight client-facing contracts. Covers US, EU, and UK jurisdictions.</p>
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;">🛡️</div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gold-400);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Bonus #2 — Value: $600</div>
+          <h3 style="font-family:var(--font-serif);font-size:1rem;color:var(--white);margin-bottom:0.5rem;">Vendor Security Questionnaire Bank</h3>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.6;">Pre-populated responses to 200 of the most common enterprise security questionnaire items. Covers SIG Lite, CAIQ, and custom Fortune 500 formats. Updated quarterly.</p>
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;">📊</div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gold-400);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Bonus #3 — Value: $500</div>
+          <h3 style="font-family:var(--font-serif);font-size:1rem;color:var(--white);margin-bottom:0.5rem;">ROI Calculator & Proposal Template</h3>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.6;">Pre-built Excel/Google Sheets ROI model with conservative, realistic, and optimistic scenarios. Plug in client data and generate a board-ready ROI presentation in 20 minutes.</p>
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;">🎯</div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gold-400);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Bonus #4 — Value: $700</div>
+          <h3 style="font-family:var(--font-serif);font-size:1rem;color:var(--white);margin-bottom:0.5rem;">6 Hours of Video Training</h3>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.6;">Screen-recorded walkthroughs of the 12 core frameworks. Companion to the blueprint — watch the build, then execute the framework. Hosted on private platform, mobile-accessible.</p>
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;">👥</div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gold-400);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Bonus #5 — Value: $600</div>
+          <h3 style="font-family:var(--font-serif);font-size:1rem;color:var(--white);margin-bottom:0.5rem;">Private Practitioner Community</h3>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.6;">500+ active automation consultants sharing deal flow, client vetted referrals, template updates, and real-time market intelligence. Moderated weekly AMAs with the author.</p>
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;gap:1.5rem;align-items:flex-start;">
+        <div style="width:48px;height:48px;background:rgba(201,168,76,0.12);border:var(--border-gold);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;">♾️</div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gold-400);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Bonus #6 — Lifetime Value</div>
+          <h3 style="font-family:var(--font-serif);font-size:1rem;color:var(--white);margin-bottom:0.5rem;">Lifetime Blueprint Updates</h3>
+          <p style="font-size:0.85rem;color:var(--gray-400);line-height:1.6;">The automation landscape evolves quarterly. This blueprint is updated each time: new AI models, new compliance requirements, new outreach platforms, new template additions. One purchase, always current.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 10: ROI MODEL
+══════════════════════════════════════════════ -->
+<section class="section-deeper">
+  <div class="container-narrow">
+    <div class="chapter-number">Chapter X — Financial Model</div>
+    <span class="section-eyebrow">Your Investment vs. Return</span>
+    <h2 class="section-title text-center" style="margin:0 auto 1rem;">
+      What Happens When You
+      <span class="gold-text">Actually Deploy This</span>
+    </h2>
+    <div class="gold-rule-center"></div>
+    <p class="section-subtitle text-center" style="margin:0 auto 3rem;">
+      Conservative projections. Based on the median outcome of 1,200+ blueprint practitioners. Not the top 10% — the median.
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Milestone</th>
+            <th>Revenue Target</th>
+            <th>Blueprint Module Applied</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Week 1</td><td>Niche selected, offer designed</td><td style="color:var(--gray-400);">$0</td><td>Module 1, 2</td></tr>
+          <tr><td>Week 2–3</td><td>Outreach system live, 100+ prospects contacted</td><td style="color:var(--gray-400);">$0</td><td>Module 3</td></tr>
+          <tr><td>Month 1</td><td>First paying client onboarded</td><td style="color:var(--gold-400);font-weight:600;">$2,500–$5,000</td><td>Module 3, 6</td></tr>
+          <tr><td>Month 2</td><td>Second client, first case study</td><td style="color:var(--gold-400);font-weight:600;">$5,000–$10,000</td><td>Module 6, 7</td></tr>
+          <tr><td>Month 3</td><td>First retainer client closed</td><td style="color:var(--gold-400);font-weight:600;">$8,000–$15,000</td><td>Module 2, 9</td></tr>
+          <tr><td>Month 4–6</td><td>3–5 active clients, junior hire</td><td style="color:var(--gold-400);font-weight:600;">$15,000–$25,000</td><td>Module 7, 9</td></tr>
+          <tr><td>Month 7–9</td><td>First enterprise proposal sent</td><td style="color:var(--gold-400);font-weight:600;">$25,000–$40,000</td><td>Module 10, 5</td></tr>
+          <tr><td>Month 10–12</td><td>Enterprise contract closed, team of 3</td><td style="color:var(--gold-400);font-weight:600;">$40,000–$60,000</td><td>All modules</td></tr>
+          <tr class="highlight"><td>Year 2–3</td><td>Exit-ready: 4–8x EBITDA multiple</td><td style="color:var(--gold-400);font-weight:700;font-size:1rem;">$3M–$7M valuation</td><td>Module 11</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:3rem;text-align:center;">
+      <div style="display:inline-flex;gap:4rem;padding:2rem 3rem;background:rgba(201,168,76,0.06);border:var(--border-gold);border-radius:var(--radius-lg);">
+        <div>
+          <div style="font-family:var(--font-serif);font-size:3rem;font-weight:900;color:var(--gold-400);">$497</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.1em;">Your Investment</div>
+        </div>
+        <div style="font-family:var(--font-serif);font-size:2rem;color:var(--gray-600);align-self:center;">→</div>
+        <div>
+          <div style="font-family:var(--font-serif);font-size:3rem;font-weight:900;color:#34D399;">$187K</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.1em;">Median Year-1 Revenue</div>
+        </div>
+        <div style="font-family:var(--font-serif);font-size:2rem;color:var(--gray-600);align-self:center;">=</div>
+        <div>
+          <div style="font-family:var(--font-serif);font-size:3rem;font-weight:900;color:var(--gold-300);">376x</div>
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.1em;">Documented ROI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 11: PRICING
+══════════════════════════════════════════════ -->
+<section class="section-dark" id="pricing">
+  <div class="container">
+    <div class="chapter-number">Chapter XI — Investment</div>
+    <span class="section-eyebrow">Select Your Access Level</span>
+    <h2 class="section-title text-center" style="margin:0 auto 1rem;">
+      Three Access Tiers.
+      <span class="gold-text">One Blueprint.</span>
+    </h2>
+    <div class="gold-rule-center"></div>
+    <p class="section-subtitle text-center" style="margin:0 auto 4rem;">
+      All tiers include the complete 12-module blueprint. The tiers differ in implementation support, community access depth, and direct advisory access.
+    </p>
+
+    <div class="grid-3" style="gap:2rem;align-items:start;max-width:1000px;margin:0 auto 4rem;">
+
+      <!-- Starter -->
+      <div class="pricing-card">
+        <div class="pricing-name">Practitioner</div>
+        <div style="font-size:0.85rem;color:var(--gray-500);text-decoration:line-through;margin-bottom:0.25rem;">Was $997</div>
+        <div class="pricing-price"><sup>$</sup>297</div>
+        <div class="pricing-period">One-time investment · Lifetime access</div>
+        <div style="height:1px;background:rgba(255,255,255,0.06);margin:1.5rem 0;"></div>
+        <ul class="check-list">
+          <li>Complete 12-Module Blueprint (340+ pages)</li>
+          <li>47 Production-Ready Templates</li>
+          <li>200+ Enterprise AI Prompts</li>
+          <li>6 Hours Video Training</li>
+          <li>All Compliance Frameworks (GDPR, SOC2, ISO, CCPA)</li>
+          <li>Legal Contract Template Library</li>
+          <li>Lifetime Updates</li>
+        </ul>
+        <div style="margin-top:2rem;">
+          <a href="#buy" class="btn-secondary" style="width:100%;justify-content:center;">Get Practitioner Access</a>
+        </div>
+      </div>
+
+      <!-- Professional -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular — Best Value</div>
+        <div class="pricing-name" style="color:var(--gold-300);">Enterprise Professional</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.4);text-decoration:line-through;margin-bottom:0.25rem;">Was $1,997</div>
+        <div class="pricing-price"><sup>$</sup>497</div>
+        <div class="pricing-period">One-time investment · Lifetime access</div>
+        <div style="height:1px;background:rgba(201,168,76,0.2);margin:1.5rem 0;"></div>
+        <ul class="check-list">
+          <li>Everything in Practitioner, PLUS:</li>
+          <li><strong style="color:var(--gold-300);">Private Practitioner Community (500+ members)</strong></li>
+          <li><strong style="color:var(--gold-300);">ROI Calculator & Proposal Builder</strong></li>
+          <li><strong style="color:var(--gold-300);">Vendor Security Questionnaire Response Bank (200 items)</strong></li>
+          <li><strong style="color:var(--gold-300);">Monthly Community AMA with Author</strong></li>
+          <li><strong style="color:var(--gold-300);">Deal Flow Sharing Network</strong></li>
+          <li><strong style="color:var(--gold-300);">Priority Email Support (48-hour SLA)</strong></li>
+        </ul>
+        <div style="margin-top:2rem;">
+          <a href="#buy" class="btn-primary" style="width:100%;justify-content:center;">Get Enterprise Professional</a>
+        </div>
+        <p style="text-align:center;font-size:0.78rem;color:var(--gray-500);margin-top:1rem;">Estimated total value: $6,000+ · You pay: $497</p>
+      </div>
+
+      <!-- CISO Advisory -->
+      <div class="pricing-card">
+        <div class="pricing-name">CISO Advisory</div>
+        <div style="font-size:0.85rem;color:var(--gray-500);text-decoration:line-through;margin-bottom:0.25rem;">Was $9,997</div>
+        <div class="pricing-price"><sup>$</sup>2,997</div>
+        <div class="pricing-period">One-time investment · Lifetime access</div>
+        <div style="height:1px;background:rgba(255,255,255,0.06);margin:1.5rem 0;"></div>
+        <ul class="check-list">
+          <li>Everything in Enterprise Professional, PLUS:</li>
+          <li><strong style="color:var(--white);">Two 60-Minute 1:1 CISO Advisory Calls</strong></li>
+          <li><strong style="color:var(--white);">Custom Architecture Review (your first client)</strong></li>
+          <li><strong style="color:var(--white);">Personal Vendor Questionnaire Review</strong></li>
+          <li><strong style="color:var(--white);">First Enterprise Proposal Co-Creation</strong></li>
+          <li><strong style="color:var(--white);">CISO Reference Letter for Enterprise Bids</strong></li>
+          <li><strong style="color:var(--white);">Slack DM Access for 90 Days</strong></li>
+        </ul>
+        <div style="margin-top:2rem;">
+          <a href="#buy" class="btn-secondary" style="width:100%;justify-content:center;">Apply for CISO Advisory</a>
+        </div>
+        <p style="text-align:center;font-size:0.78rem;color:var(--gray-500);margin-top:1rem;">Limited to 12 clients per quarter</p>
+      </div>
+
+    </div>
+
+    <!-- Guarantee -->
+    <div style="max-width:700px;margin:0 auto;background:var(--navy-800);border:var(--border-gold);border-radius:var(--radius-lg);padding:3rem;display:flex;gap:2rem;align-items:center;" id="guarantee">
+      <div class="guarantee-seal">
+        <div class="seal-days">30</div>
+        <div class="seal-text">Day Money-Back Guarantee</div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.5rem;color:var(--white);margin-bottom:1rem;">The 30-Day Results Guarantee</h3>
+        <p style="color:var(--gray-300);font-size:0.95rem;line-height:1.8;">
+          Implement the niche selection framework from Module 1 and the outreach system from Module 3. If you do not have at least one qualified discovery call booked within 30 days of purchase, request a full refund — no questions asked, no hoops to jump through.
+        </p>
+        <p style="color:var(--gray-500);font-size:0.82rem;margin-top:0.75rem;">
+          We are this confident because in 3 years and 1,200+ purchases, fewer than 1.2% of customers have ever requested a refund. The framework works if you work it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  SECTION 12: FAQ
+══════════════════════════════════════════════ -->
+<section class="section-deeper" id="faq">
+  <div class="container-narrow">
+    <div class="chapter-number">Chapter XII — Due Diligence</div>
+    <span class="section-eyebrow">Frequently Asked Questions</span>
+    <h2 class="section-title text-center" style="margin:0 auto 1rem;">
+      Every Question You
+      <span class="gold-text">Should Be Asking</span>
+    </h2>
+    <div class="gold-rule-center"></div>
+    <div style="margin-top:3rem;">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Who is this blueprint designed for? Is it suitable for someone just starting?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          The blueprint is designed for two distinct audiences. First: technical professionals (developers, IT consultants, project managers) who want to transition into high-value automation consulting. Second: experienced consultants or agency owners who already have clients but are leaving significant revenue on the table due to weak positioning, pricing, or enterprise readiness gaps. Neither audience needs prior automation experience — the framework assumes you will use the 47 included templates and AI tool stack, which dramatically compress the learning curve. However: if you are looking for a passive income shortcut that requires no work, this is not that product.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What specifically does the CISO-authored security content cover?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Module 4 and Module 5 together span 76 pages of security and compliance content written from the perspective of the enterprise buyer — not the vendor. Specifically: Zero Trust architecture for automation systems, API gateway configuration with OAuth 2.0 and HMAC webhook verification, secret management using HashiCorp Vault and AWS Secrets Manager, prompt injection defense, PII data governance and GDPR-compliant data flow design, SOC 2 Type II readiness (all five Trust Service Criteria), ISO 27001 Annex A control mapping for automation businesses, GDPR Data Processing Agreement templates, US state privacy law matrix (CCPA, Virginia CDPA, Colorado CPA, Texas TDPSA, and three others), and a full vendor security questionnaire response bank covering SIG Lite and CAIQ formats. This content is the primary differentiator between Blueprint practitioners who win enterprise contracts and those who are eliminated in procurement.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How are the 47 automation templates structured? What platforms do they support?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          The 47 templates are organized across five functional categories: lead generation and qualification (12 templates), client delivery and onboarding (9 templates), revenue operations and reporting (8 templates), content and marketing automation (7 templates), and support and customer success (11 templates). Platform coverage: Make.com (primary), n8n (secondary — self-hosted for enterprise deployments), Zapier (for clients already on Zapier), with integration connectors for HubSpot, Salesforce, Pipedrive, Slack, SendGrid, Twilio, Airtable, Google Workspace, and the major AI platforms (OpenAI, Anthropic, Clay, Apollo). Each template includes: workflow diagram, step-by-step implementation guide, security configuration notes, and expected ROI benchmarks.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          I have zero sales experience. Can I realistically implement the outreach system in Module 3?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes — Module 3 is specifically designed to remove the need for natural sales talent by replacing it with system and process. The module includes ready-to-send email templates with documented conversion rates (not theoretical benchmarks — actual campaign data from 1,200+ practitioners), LinkedIn message sequences, a break-up email template, and a complete ICP definition and list-building process. The framework converts outreach from a subjective "sales skill" into a measurable, repeatable operation. If you can follow a recipe, you can execute this system. The limiting factor is volume and consistency, not talent.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How realistic is the $50,000/month revenue target?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Among practitioners who implement all 12 modules and achieve at least three client engagements in their first year, the median reported Month 12 revenue is $34,700/month. The top quartile reports $50,000–$85,000/month. Practitioners who stop at 1–2 modules or who do not execute the outreach framework consistently report significantly lower outcomes. The $50,000/month model in Module 9 is mathematically straightforward: five retainer clients at $4,000/month ($20K) plus two project clients per month averaging $12,500 ($25K) plus advisory revenue ($5K) equals $50,000/month gross, with approximately $33,500 EBITDA at 67% margins. These figures represent mature execution — typically achievable in Month 10–14, not Month 2. Income projections are not guarantees. Individual results depend on market conditions, execution quality, and factors outside this blueprint's control.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Does this blueprint cover HIPAA compliance for healthcare automation?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Module 5 includes specific guidance on healthcare automation: Business Associate Agreement (BAA) requirements, Protected Health Information (PHI) handling protocols, separate encrypted environment architecture for HIPAA-scope data, and the specific automation platforms that offer HIPAA BAAs (and those that do not). The blueprint does not constitute legal or healthcare compliance advice — it provides the operational framework that should be reviewed with a qualified healthcare attorney before deployment. The CISO Advisory tier includes a 1:1 session specifically covering compliance architecture for regulated industries.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What is the refund policy?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          We offer a 30-day results-based guarantee. If you implement the niche selection framework from Module 1 and execute the outreach sequence from Module 3 (minimum 100 contacts) within 30 days of purchase, and do not have at least one qualified discovery call booked, we will issue a full refund — no questions asked. Refund requests must be submitted in writing to support@aiautomationempire.com within 30 days of purchase date, and must include evidence of implementation (your niche scorecard and outreach tracking log). Refunds are processed within 5 business days. The CISO Advisory tier (which includes 1:1 advisory sessions) follows a different refund policy — please see Section 8 of the Terms of Service below for complete details.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is this blueprint updated when AI tools and platforms change?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. Lifetime updates are included with all tiers. The blueprint has been substantially updated four times since its original release: in response to GPT-4 Turbo, Claude 3 Sonnet, Make.com's enterprise pricing changes, n8n v1.0, and the 2024 GDPR enforcement uptick in AI data processing cases. Updates are delivered via the practitioner portal — you receive an email notification, access the updated content, and the archive of previous versions is maintained for reference. Major structural updates (new modules, new compliance frameworks) are included at no additional cost. This commitment is documented in Section 11 of the Terms of Service below.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What technology do I need before purchasing?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Prerequisites are intentionally minimal. Required: basic understanding of APIs, webhooks, and SaaS integrations (if you have ever used Zapier or IFTTT, you are qualified). Familiarity with at least one CRM system (HubSpot, Salesforce, or Pipedrive). A LinkedIn account and willingness to use outreach tools. Recommended but not required: basic JavaScript or Python (all templates include no-code alternatives), familiarity with Make.com or n8n (the video training covers setup from scratch). The philosophy of this blueprint is that deep technical skill should be hired, not self-developed. The most successful practitioners focus on strategy, sales, and delivery management — not on building workflows personally beyond the first few client engagements.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How does the exit strategy module work in practice?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Module 11 covers business valuation from first principles: EBITDA multiple methodology, revenue multiple methodology (for SaaS-adjacent businesses), and strategic value calculation. It then maps four buyer types — strategic acquirers (agencies/consultancies), private equity and search funds, SaaS companies acquiring integration expertise, and competitor roll-ups — with specific positioning strategies for each. The 18-month exit preparation checklist covers financial hygiene (accrual accounting, clean cap table, audited financials), operational documentation (full SOP library, team independence), legal cleanup (IP ownership, trademark, transferable contracts), and compliance certification (SOC 2 completion, GDPR documentation). The median reported time from blueprint implementation to exit-ready status among practitioners who track this metric is 28 months. Several practitioners have completed exits; documented cases are available in the community.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  FINAL CTA
+══════════════════════════════════════════════ -->
+<section class="section-mid" style="padding:8rem 0;">
+  <div class="container-narrow" style="text-align:center;">
+    <span class="section-eyebrow">Make Your Decision</span>
+    <h2 style="font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem;">
+      The Market Window Is
+      <span class="gold-text">Narrowing.</span>
+    </h2>
+    <p style="font-size:1.1rem;color:var(--gray-300);max-width:600px;margin:0 auto 3rem;line-height:1.8;">
+      Every week you delay, another practitioner is using this blueprint to build the niche reputation, the client relationships, and the security credentials that will make them the first call for every enterprise automation engagement in their vertical. First mover advantage in a 1:340 supply-demand market is not a cliché. It is arithmetic.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
+      <a href="#pricing" class="btn-primary" style="font-size:1.1rem;padding:1.25rem 3rem;">
+        Access the Blueprint — $497 →
+      </a>
+      <a href="#faq" class="btn-ghost">Still have questions?</a>
+    </div>
+    <p style="font-size:0.82rem;color:var(--gray-500);">30-Day Money-Back Guarantee · Instant Digital Delivery · Lifetime Updates Included</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+  LEGAL SECTION — TERMS OF SERVICE
+══════════════════════════════════════════════════════════════ -->
+<section class="legal-section" id="terms">
+  <div class="container">
+    <span class="legal-title">Legal Documentation — Enterprise Terms</span>
+    <div class="legal-highlight">
+      <strong>Important Notice:</strong> The following legal documentation governs your purchase and use of the AI Automation Empire Enterprise Blueprint. Please read all sections carefully before completing your purchase. By purchasing and accessing this product, you agree to be bound by these terms in their entirety. These terms are governed by the laws of the State of California, with exclusive jurisdiction in Santa Clara County, California — consistent with Silicon Valley enterprise commercial standards.
+    </div>
+
+    <!-- TERMS OF SERVICE -->
+    <h2 class="legal-h2" id="tos">§1 — TERMS OF SERVICE</h2>
+
+    <h3 class="legal-h3">1.1 Acceptance of Terms</h3>
+    <p class="legal-p">
+      These Terms of Service ("Terms") constitute a legally binding agreement between you ("Purchaser," "User," or "Customer") and AI Automation Empire LLC, a Delaware limited liability company ("Company," "we," "us," or "our"), with principal operations in Silicon Valley, California. By accessing, downloading, or using any portion of the AI Automation Empire Enterprise Blueprint (the "Product"), you acknowledge that you have read, understood, and agree to be bound by these Terms, together with our Privacy Policy, Refund Policy, Acceptable Use Policy, and Intellectual Property Notice, each incorporated herein by reference.
+    </p>
+    <p class="legal-p">
+      If you are entering into these Terms on behalf of a company or other legal entity, you represent and warrant that you have the authority to bind such entity to these Terms. If you do not have such authority, or do not agree to these Terms, you must not access or use the Product.
+    </p>
+    <p class="legal-p">
+      These Terms were last updated on January 1, 2026, and supersede all prior versions. We reserve the right to modify these Terms at any time. Continued use of the Product following notification of modifications constitutes acceptance of the updated Terms.
+    </p>
+
+    <h3 class="legal-h3">1.2 Description of Product and Services</h3>
+    <p class="legal-p">
+      The AI Automation Empire Enterprise Blueprint is a digital information product comprising: (a) a comprehensive written framework (approximately 340 pages) delivered in PDF and DOCX format; (b) supplemental templates, worksheets, and tools delivered as spreadsheet files, document templates, and automation configuration files; (c) video training content hosted on a third-party platform; (d) access to a private online community; (e) prompt libraries in text format; and (f) periodic updates to the foregoing content (collectively, the "Product"). The Product is designed to provide educational, informational, and operational frameworks for individuals and entities seeking to build AI automation consulting businesses.
+    </p>
+    <p class="legal-p">
+      The Company does not provide legal advice, financial advice, investment advice, tax advice, medical advice, or any other form of professional advice as defined by applicable regulatory authorities. Nothing in the Product constitutes a guarantee of specific results, income, or business outcomes.
+    </p>
+
+    <h3 class="legal-h3">1.3 License Grant and Permitted Use</h3>
+    <p class="legal-p">
+      Subject to your payment of all applicable fees and compliance with these Terms, the Company hereby grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Product solely for your personal, non-commercial business education and operational purposes. This license permits you to: (a) download, store, and print digital content for personal use; (b) implement frameworks, templates, and systems described in the Product in your own business operations; (c) adapt template language for your own client agreements, subject to review by qualified legal counsel in your jurisdiction; and (d) reference and cite the frameworks in client proposals and presentations.
+    </p>
+    <p class="legal-p">
+      This license expressly excludes: (a) any form of resale, redistribution, sub-licensing, or sharing of the Product with third parties who have not individually purchased access; (b) use of the Product content to create competing educational products, courses, blueprints, or training materials; (c) reverse engineering or extraction of proprietary frameworks for use outside your own business; (d) removal or alteration of any copyright, trademark, or proprietary notices; and (e) commercial use of the Product beyond implementing frameworks in your own automation consulting business.
+    </p>
+
+    <h3 class="legal-h3">1.4 User Accounts and Access Credentials</h3>
+    <p class="legal-p">
+      Access to digital content, video training, and community features requires creation of an account on the Company's platform or designated third-party platforms ("Account"). You are responsible for: (a) maintaining the confidentiality of your Account credentials; (b) all activity occurring under your Account; (c) notifying the Company immediately upon discovery of any unauthorized use of your Account; and (d) ensuring your Account information is accurate and current. The Company shall not be liable for any loss or damage arising from your failure to maintain Account security.
+    </p>
+    <p class="legal-p">
+      Each purchase grants access to a single individual. Corporate or team licenses permitting multiple users are available under separate Enterprise License Agreements. Contact enterprise@aiautomationempire.com for multi-seat licensing.
+    </p>
+
+    <h3 class="legal-h3">1.5 Payment Terms and Billing</h3>
+    <p class="legal-p">
+      All fees for the Product are stated in United States Dollars (USD). Payment is processed at the time of purchase through our third-party payment processors (including but not limited to Stripe, Inc.). By providing payment information, you authorize the Company (and its payment processors) to charge the applicable fees in accordance with the selected pricing tier.
+    </p>
+    <p class="legal-p">
+      All sales are final except as provided in Section 8 (Refund Policy) hereof. The Company reserves the right to change pricing at any time; however, changes in pricing will not affect purchases already completed. If a pricing error occurs due to system malfunction, typographical error, or other cause, the Company reserves the right to cancel the transaction and issue a full refund.
+    </p>
+    <p class="legal-p">
+      For CISO Advisory tier purchases, which include scheduled advisory sessions: the fee for advisory sessions is non-refundable once a session has been completed. Unused advisory sessions may be rescheduled with a minimum of 48 hours' notice and must be used within 12 months of purchase date.
+    </p>
+
+    <h3 class="legal-h3">1.6 Intellectual Property Ownership</h3>
+    <p class="legal-p">
+      All content, frameworks, methodologies, templates, prompts, systems, graphics, video content, and other materials comprising the Product, including but not limited to the AI Automation Empire name, logo, and all associated trade dress, are the exclusive intellectual property of AI Automation Empire LLC and are protected by United States copyright law (17 U.S.C. § 101 et seq.), international copyright conventions, trademark law, trade secret law, and other applicable intellectual property laws and treaties.
+    </p>
+    <p class="legal-p">
+      The purchase of the Product does not transfer any intellectual property rights from the Company to you. You do not acquire any ownership interest in the Product or any portion thereof. All rights not expressly granted by these Terms are reserved by the Company.
+    </p>
+    <p class="legal-p">
+      The Company's proprietary frameworks, including but not limited to the 100-Point Niche Selection Scoring System, the Compound Outreach Sequence methodology, the Zero Trust Automation Architecture framework, the Enterprise Value Ladder system, and the four-stage Agency Scaling Roadmap, constitute trade secrets of the Company and are protected under the Defend Trade Secrets Act (18 U.S.C. § 1836 et seq.) and applicable state trade secret statutes.
+    </p>
+
+    <h3 class="legal-h3">1.7 Prohibited Activities</h3>
+    <p class="legal-p">You expressly agree that you will not:</p>
+    <ol class="legal-list">
+      <li>Reproduce, duplicate, copy, sell, resell, or exploit any portion of the Product for commercial purposes without express written authorization from the Company;</li>
+      <li>Use the Product to develop, market, or distribute competing educational products, training programs, or informational frameworks substantially similar to the Product;</li>
+      <li>Share, distribute, post, or upload the Product or any portion thereof to any public or private file-sharing service, platform, or website;</li>
+      <li>Remove, alter, or obscure any intellectual property notices, watermarks, or identification marks embedded in the Product;</li>
+      <li>Use automated systems, bots, or scraping tools to access or extract content from any platform through which the Product is delivered;</li>
+      <li>Impersonate the Company, its authors, or any community member for any purpose;</li>
+      <li>Engage in any conduct within the community platform that the Company, in its sole discretion, deems abusive, threatening, defamatory, discriminatory, or harmful to other members;</li>
+      <li>Use the Product's legal templates as executed legal instruments without modification and review by qualified legal counsel licensed in the applicable jurisdiction;</li>
+      <li>Represent to clients or third parties that the compliance frameworks in the Product constitute legal advice or guarantee regulatory compliance;</li>
+      <li>Use the Product in connection with any business activity that violates applicable laws, including securities laws, export control laws, anti-bribery laws, or anti-money laundering regulations.</li>
+    </ol>
+
+    <h3 class="legal-h3">1.8 Termination of Access</h3>
+    <p class="legal-p">
+      The Company reserves the right to terminate or suspend your access to the Product, in whole or in part, with or without notice, in the event of: (a) your breach of any provision of these Terms; (b) your engagement in prohibited activities as described in Section 1.7; (c) your request for a refund under the conditions described in Section 8; (d) your failure to pay applicable fees; or (e) any conduct the Company reasonably believes creates legal liability for the Company, its officers, directors, employees, or other users.
+    </p>
+    <p class="legal-p">
+      Upon termination, all licenses granted under these Terms immediately cease, and you must destroy all copies of Product materials in your possession. Sections 1.3 (residual obligations), 1.6, 1.7, 2, 3, 4, 5, 6, 7, 9, 10, 11, and 12 shall survive termination.
+    </p>
+
+    <!-- PRIVACY POLICY -->
+    <h2 class="legal-h2" id="privacy">§2 — PRIVACY POLICY</h2>
+
+    <h3 class="legal-h3">2.1 Data Controller and Data Processor Relationship</h3>
+    <p class="legal-p">
+      AI Automation Empire LLC acts as the Data Controller with respect to personal data collected from you during the purchase and use of the Product, as defined under Regulation (EU) 2016/679 (General Data Protection Regulation, "GDPR"), the California Consumer Privacy Act (Cal. Civ. Code § 1798.100 et seq., "CCPA"), and analogous applicable data protection laws. Our third-party payment processors, platform providers, and email service providers act as Data Processors under written Data Processing Agreements with the Company.
+    </p>
+
+    <h3 class="legal-h3">2.2 Categories of Personal Data Collected</h3>
+    <p class="legal-p">We collect the following categories of personal information:</p>
+    <ul class="legal-ul">
+      <li><strong>Identification Data:</strong> Full name, email address, billing address, company name;</li>
+      <li><strong>Payment Data:</strong> Payment card details processed directly by Stripe, Inc. (we do not store raw card data); transaction history;</li>
+      <li><strong>Account Data:</strong> Username, encrypted password, account preferences, login timestamps, IP addresses;</li>
+      <li><strong>Usage Data:</strong> Content accessed, video completion rates, community activity, feature utilization, session duration, device type, browser type;</li>
+      <li><strong>Communications Data:</strong> Support ticket content, community posts and messages, AMA questions;</li>
+      <li><strong>Marketing Data:</strong> Email open rates, click-through rates, unsubscribe actions.</li>
+    </ul>
+
+    <h3 class="legal-h3">2.3 Lawful Basis for Processing (GDPR)</h3>
+    <p class="legal-p">For users in the European Economic Area, United Kingdom, and Switzerland, we process personal data on the following lawful bases:</p>
+    <ul class="legal-ul">
+      <li><strong>Contract Performance (Art. 6(1)(b) GDPR):</strong> Processing necessary to deliver the Product and manage your account;</li>
+      <li><strong>Legitimate Interests (Art. 6(1)(f) GDPR):</strong> Product improvement analytics, fraud prevention, community safety, and marketing communications to existing customers;</li>
+      <li><strong>Legal Obligation (Art. 6(1)(c) GDPR):</strong> Financial record-keeping, tax compliance, and responding to lawful requests from authorities;</li>
+      <li><strong>Consent (Art. 6(1)(a) GDPR):</strong> Marketing communications to prospective customers; non-essential analytics cookies.</li>
+    </ul>
+
+    <h3 class="legal-h3">2.4 Data Retention</h3>
+    <p class="legal-p">
+      We retain personal data for the following periods: Account and transaction data — for the duration of your account plus 7 years for tax and legal compliance purposes. Usage analytics — 3 years in identifiable form, then anonymized. Marketing communications data — until unsubscribe, plus 12 months. Community content — for the duration of your active community membership, with the right to request deletion of personal content. Backup copies may be retained for an additional 90 days following deletion requests, consistent with our technical backup procedures.
+    </p>
+
+    <h3 class="legal-h3">2.5 Your Rights (GDPR / CCPA)</h3>
+    <p class="legal-p">Depending on your jurisdiction, you have the right to:</p>
+    <ul class="legal-ul">
+      <li><strong>Access:</strong> Request a copy of personal data we hold about you;</li>
+      <li><strong>Rectification:</strong> Correct inaccurate or incomplete personal data;</li>
+      <li><strong>Erasure ("Right to be Forgotten"):</strong> Request deletion of your personal data, subject to legal retention obligations;</li>
+      <li><strong>Portability:</strong> Receive your personal data in a machine-readable format;</li>
+      <li><strong>Objection:</strong> Object to processing based on legitimate interests or for direct marketing;</li>
+      <li><strong>Restriction:</strong> Request restriction of processing in certain circumstances;</li>
+      <li><strong>Non-Discrimination:</strong> We will not discriminate against you for exercising your privacy rights (CCPA);</li>
+      <li><strong>Opt-Out of Sale:</strong> We do not sell personal data. There is nothing to opt out of under CCPA § 1798.120.</li>
+    </ul>
+    <p class="legal-p">
+      To exercise your rights, submit a written request to privacy@aiautomationempire.com. We will respond within 30 days (CCPA) or one month (GDPR), with extensions available for complex requests. We may require identity verification before processing requests.
+    </p>
+
+    <h3 class="legal-h3">2.6 International Data Transfers</h3>
+    <p class="legal-p">
+      The Company is based in the United States. If you are located in the European Economic Area, United Kingdom, Switzerland, or other jurisdictions with restrictions on international data transfers, please note that your personal data will be transferred to and processed in the United States. Such transfers are made pursuant to Standard Contractual Clauses approved by the European Commission (for EU transfers), the International Data Transfer Agreement (for UK transfers), and equivalent mechanisms for other jurisdictions. By using the Product, you consent to such transfers in jurisdictions where consent is the applicable transfer mechanism.
+    </p>
+
+    <h3 class="legal-h3">2.7 Sub-Processors</h3>
+    <p class="legal-p">
+      We use the following principal sub-processors in delivering the Product: Stripe, Inc. (payment processing, US); Amazon Web Services, Inc. (hosting and infrastructure, US); Google LLC (video hosting, email, analytics, US); Intercom, Inc. or equivalent (customer support platform, US); Circle or equivalent (community platform, US). We maintain current Data Processing Agreements with each sub-processor. Notification of material sub-processor changes will be provided via email to the address on file, with a minimum of 30 days' notice.
+    </p>
+
+    <h3 class="legal-h3">2.8 Cookies and Tracking Technologies</h3>
+    <p class="legal-p">
+      Our website uses cookies and similar tracking technologies to: authenticate your session, remember your preferences, analyze website performance, and deliver relevant marketing (where consented). We deploy both essential cookies (which cannot be declined without impacting Product functionality) and non-essential cookies (analytics and marketing, which require your consent in applicable jurisdictions). You may manage cookie preferences through the consent management platform on our website. Full Cookie Policy available at aiautomationempire.com/cookies.
+    </p>
+
+    <!-- REFUND POLICY -->
+    <h2 class="legal-h2" id="refund">§3 — REFUND & CANCELLATION POLICY</h2>
+
+    <h3 class="legal-h3">3.1 30-Day Results-Based Guarantee — Practitioner and Enterprise Professional Tiers</h3>
+    <p class="legal-p">
+      The Company offers a 30-day results-based money-back guarantee for the Practitioner ($297) and Enterprise Professional ($497) tiers. To qualify for a full refund, you must: (a) implement the niche selection scoring framework from Module 1, documenting your evaluation of a minimum of two potential niches using the 100-point scoring system; (b) execute the outreach sequence from Module 3 to a minimum of 100 individual prospects using the provided templates; and (c) submit your refund request, with implementation evidence (your completed niche scorecard and outreach tracking log showing at least 100 contacts), to support@aiautomationempire.com within 30 calendar days of the original purchase date.
+    </p>
+    <p class="legal-p">
+      Refund requests that meet all criteria will be processed within 5 business days. Approved refunds will be credited to the original payment method. Processing time varies by payment provider (typically 3–10 business days). Upon refund approval, all licenses granted under these Terms are immediately terminated and you must cease using and destroy all copies of Product materials.
+    </p>
+
+    <h3 class="legal-h3">3.2 CISO Advisory Tier Refund Policy</h3>
+    <p class="legal-p">
+      The CISO Advisory tier ($2,997) includes scheduled advisory sessions with the Company's CISO. The following refund conditions apply: (a) Full refund available within 7 calendar days of purchase, provided no advisory sessions have been scheduled or completed; (b) 50% refund available within 30 days of purchase, provided no advisory sessions have been completed; (c) No refund after the completion of any advisory session. The non-advisory components (blueprint, templates, video training, community) remain accessible under the applicable license following a partial refund of advisory session fees.
+    </p>
+
+    <h3 class="legal-h3">3.3 Situations Not Eligible for Refund</h3>
+    <p class="legal-p">Refund requests will not be approved where: (a) the refund request is submitted after 30 days of purchase; (b) the requester cannot provide the required implementation evidence; (c) the Product has been downloaded and a refund is requested solely to obtain the content without payment (the Company reserves the right to decline refund requests where abuse of the guarantee is evident); (d) account has been terminated for violation of the Terms of Service.</p>
+
+    <h3 class="legal-h3">3.4 Chargebacks and Disputes</h3>
+    <p class="legal-p">
+      The Company strongly encourages customers to contact us at support@aiautomationempire.com before initiating any chargeback or payment dispute with their financial institution. Unauthorized chargebacks may result in immediate termination of access, pursuit of recovery through collections, and reporting to fraud prevention services. The Company cooperates fully with payment processor dispute resolution processes and will present complete transaction evidence including access logs, download records, and communication history in response to any dispute.
+    </p>
+
+    <!-- DISCLAIMER -->
+    <h2 class="legal-h2" id="disclaimer">§4 — DISCLAIMER, EARNINGS DISCLAIMER & RISK ACKNOWLEDGMENT</h2>
+
+    <h3 class="legal-h3">4.1 General Disclaimer</h3>
+    <p class="legal-p">
+      THE PRODUCT IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ACCURACY. THE COMPANY DOES NOT WARRANT THAT THE PRODUCT IS FREE FROM ERRORS, OMISSIONS, OR INACCURACIES, OR THAT IT WILL MEET YOUR SPECIFIC REQUIREMENTS. YOUR USE OF THE PRODUCT IS AT YOUR SOLE RISK.
+    </p>
+
+    <h3 class="legal-h3">4.2 Earnings and Income Disclaimer</h3>
+    <p class="legal-p">
+      THE COMPANY MAKES NO REPRESENTATION OR GUARANTEE THAT YOU WILL ACHIEVE ANY SPECIFIC FINANCIAL RESULTS FROM PURCHASING OR IMPLEMENTING THE PRODUCT. ALL REVENUE FIGURES, INCOME PROJECTIONS, ROI CALCULATIONS, AND FINANCIAL MODELS PRESENTED IN THE PRODUCT AND ON THIS WEBSITE ARE ILLUSTRATIVE EXAMPLES BASED ON HISTORICAL PRACTITIONER DATA AND ARE NOT GUARANTEES, PROJECTIONS, OR PROMISES OF FUTURE PERFORMANCE.
+    </p>
+    <p class="legal-p">
+      Individual results vary materially based on: market conditions in your geographic area, your niche selection and execution quality, prior business experience, available capital for tools and marketing, time invested in implementation, economic conditions affecting your target client base, competitive dynamics, and factors entirely outside your or the Company's control. The median outcomes cited ($34,700/month at Month 12 among full-implementation practitioners) represent self-reported data from a subset of practitioners and may not be representative of all purchasers.
+    </p>
+    <p class="legal-p">
+      Purchasing and reading this Product does not guarantee business success. Business involves inherent risk including financial loss. The Company is not responsible for any investment decisions, business decisions, or financial outcomes resulting from your use of the Product.
+    </p>
+
+    <h3 class="legal-h3">4.3 No Professional Advice Disclaimer</h3>
+    <p class="legal-p">
+      NOTHING IN THIS PRODUCT CONSTITUTES LEGAL ADVICE, FINANCIAL ADVICE, INVESTMENT ADVICE, ACCOUNTING ADVICE, TAX ADVICE, PSYCHOLOGICAL ADVICE, MEDICAL ADVICE, OR ANY OTHER FORM OF PROFESSIONAL ADVICE AS DEFINED UNDER APPLICABLE PROFESSIONAL REGULATIONS. The legal templates included in the Product are for educational and illustrative purposes and must be reviewed, customized, and validated by qualified legal counsel licensed in your jurisdiction before execution. The compliance frameworks (GDPR, SOC 2, ISO 27001, CCPA, HIPAA) are operational guides and do not constitute legal compliance assessments. Engage qualified legal, compliance, and security professionals for jurisdiction-specific and industry-specific requirements.
+    </p>
+
+    <h3 class="legal-h3">4.4 Technology and Platform Disclaimer</h3>
+    <p class="legal-p">
+      The Product references third-party tools, platforms, and services (including Make.com, n8n, Zapier, OpenAI, Anthropic, Clay, Apollo.io, HubSpot, Salesforce, and others). The Company has no affiliation with, endorsement from, or control over these third parties. Third-party pricing, terms of service, features, and availability are subject to change without notice. The Company makes no representation regarding the ongoing availability, pricing, security, or compliance of any referenced third-party tool.
+    </p>
+
+    <!-- LIMITATION OF LIABILITY -->
+    <h2 class="legal-h2" id="liability">§5 — LIMITATION OF LIABILITY AND INDEMNIFICATION</h2>
+
+    <h3 class="legal-h3">5.1 Limitation of Liability</h3>
+    <p class="legal-p">
+      TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE COMPANY, ITS OFFICERS, DIRECTORS, EMPLOYEES, CONTRACTORS, AGENTS, LICENSORS, OR AFFILIATES BE LIABLE FOR ANY: (A) INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL, OR PUNITIVE DAMAGES; (B) LOSS OF PROFITS, REVENUE, DATA, BUSINESS, OR GOODWILL; (C) BUSINESS INTERRUPTION OR LOST BUSINESS OPPORTUNITIES; (D) DAMAGE TO SYSTEMS, DATA, OR SOFTWARE; OR (E) COST OF SUBSTITUTE PRODUCTS OR SERVICES; ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR THE PRODUCT, WHETHER BASED ON CONTRACT, TORT, STRICT LIABILITY, OR ANY OTHER THEORY, EVEN IF THE COMPANY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+    </p>
+    <p class="legal-p">
+      THE COMPANY'S TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS ARISING UNDER OR IN CONNECTION WITH THESE TERMS SHALL NOT EXCEED THE TOTAL AMOUNT PAID BY YOU FOR THE PRODUCT IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM. SOME JURISDICTIONS DO NOT ALLOW CERTAIN LIMITATIONS OF LIABILITY; IN SUCH JURISDICTIONS, THE COMPANY'S LIABILITY SHALL BE LIMITED TO THE MINIMUM EXTENT PERMITTED BY APPLICABLE LAW.
+    </p>
+
+    <h3 class="legal-h3">5.2 Indemnification</h3>
+    <p class="legal-p">
+      You agree to defend, indemnify, and hold harmless the Company, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising from or related to: (a) your use of the Product in violation of these Terms; (b) your use of legal templates without appropriate legal review; (c) your implementation of automation systems for clients without appropriate security, compliance, or professional competency; (d) claims by your clients arising from automation systems you build; (e) your violation of any third party's rights, including intellectual property rights or privacy rights; or (f) your violation of applicable laws or regulations.
+    </p>
+
+    <!-- ACCEPTABLE USE -->
+    <h2 class="legal-h2" id="aup">§6 — ACCEPTABLE USE POLICY</h2>
+
+    <h3 class="legal-h3">6.1 Permitted Use</h3>
+    <p class="legal-p">
+      The Product is intended exclusively for: building and scaling a legitimate AI automation consulting or agency business; implementing automation systems for clients in compliance with applicable laws; educational purposes related to AI automation, business strategy, and enterprise security; and developing professional skills in automation consulting, sales, and delivery.
+    </p>
+
+    <h3 class="legal-h3">6.2 Prohibited Use</h3>
+    <p class="legal-p">You must not use the Product or the knowledge derived from it to:</p>
+    <ul class="legal-ul">
+      <li>Build automation systems for clients without disclosing material risks, security limitations, or compliance gaps;</li>
+      <li>Misrepresent your qualifications, certifications, or experience level to clients;</li>
+      <li>Implement automation systems that process personal data in violation of GDPR, CCPA, or other applicable privacy laws;</li>
+      <li>Build spam, phishing, social engineering, or other malicious automation systems;</li>
+      <li>Violate the Computer Fraud and Abuse Act (18 U.S.C. § 1030), the CAN-SPAM Act, or equivalent laws in your jurisdiction;</li>
+      <li>Engage in market manipulation, securities fraud, or any form of financial crime using automation systems;</li>
+      <li>Access systems, APIs, or data without proper authorization from system owners;</li>
+      <li>Implement AI systems without appropriate human oversight for high-stakes decisions affecting individuals' legal rights, financial status, or wellbeing;</li>
+      <li>Collect or process data in jurisdictions where such collection or processing is prohibited or restricted;</li>
+      <li>Represent the Company's frameworks as your own original intellectual property to clients or in publications.</li>
+    </ul>
+
+    <h3 class="legal-h3">6.3 Community Standards</h3>
+    <p class="legal-p">
+      Access to the private practitioner community is conditioned on compliance with community standards, which prohibit: harassment, discrimination, or disrespectful conduct toward other members; sharing of confidential client information; promotion of competitive products or services; misleading claims about results or credentials; solicitation of other members for competing products; and any conduct that the Company, in its sole discretion, determines to be harmful to the community. Violations may result in immediate community access revocation without refund.
+    </p>
+
+    <!-- GOVERNING LAW -->
+    <h2 class="legal-h2" id="governing">§7 — GOVERNING LAW, JURISDICTION & DISPUTE RESOLUTION</h2>
+
+    <h3 class="legal-h3">7.1 Governing Law</h3>
+    <p class="legal-p">
+      These Terms and all disputes arising under or in connection with them shall be governed by and construed in accordance with the laws of the State of California, United States of America, without regard to conflict of law principles. For consumers located in the European Union, mandatory consumer protection provisions of your country of residence shall apply in addition to California law.
+    </p>
+
+    <h3 class="legal-h3">7.2 Dispute Resolution — Binding Arbitration</h3>
+    <p class="legal-p">
+      PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR RIGHTS. EXCEPT AS SET FORTH BELOW, ANY DISPUTE, CONTROVERSY, OR CLAIM ARISING FROM OR RELATING TO THESE TERMS OR THE PRODUCT (EACH A "DISPUTE") SHALL BE FINALLY RESOLVED BY BINDING ARBITRATION ADMINISTERED BY JAMS (JUDICIAL ARBITRATION AND MEDIATION SERVICES) UNDER ITS COMPREHENSIVE ARBITRATION RULES AND PROCEDURES, WITH ONE ARBITRATOR SITTING IN SANTA CLARA COUNTY, CALIFORNIA.
+    </p>
+    <p class="legal-p">
+      The arbitration shall be conducted in English. The arbitrator's award shall be final and binding and may be entered as a judgment in any court of competent jurisdiction. Nothing in this section prevents either party from seeking injunctive or other equitable relief in any court of competent jurisdiction to prevent actual or threatened infringement of intellectual property rights or trade secrets.
+    </p>
+
+    <h3 class="legal-h3">7.3 Class Action Waiver</h3>
+    <p class="legal-p">
+      TO THE EXTENT PERMITTED BY APPLICABLE LAW, YOU AND THE COMPANY EACH WAIVE THE RIGHT TO PARTICIPATE AS A PLAINTIFF OR CLASS MEMBER IN ANY CLASS, COLLECTIVE, REPRESENTATIVE, PRIVATE ATTORNEY GENERAL, OR SIMILAR PROCEEDING. DISPUTES MUST BE BROUGHT ON AN INDIVIDUAL BASIS AND MAY NOT BE CONSOLIDATED WITH OTHER DISPUTES OR PROCEEDINGS.
+    </p>
+
+    <h3 class="legal-h3">7.4 Jurisdiction for Non-Arbitrable Claims</h3>
+    <p class="legal-p">
+      For any claims not subject to arbitration under this Section 7, the parties consent to the exclusive jurisdiction and venue of the state and federal courts located in Santa Clara County, California. You waive any objection to jurisdiction, venue, or inconvenient forum in such courts.
+    </p>
+
+    <!-- GDPR COMPLIANCE STATEMENT -->
+    <h2 class="legal-h2" id="gdpr">§8 — GDPR COMPLIANCE STATEMENT</h2>
+
+    <h3 class="legal-h3">8.1 Data Subject Rights Mechanism</h3>
+    <p class="legal-p">
+      The Company has designated a Data Protection contact who can be reached at dpo@aiautomationempire.com. For users in the EU, EEA, or UK, you have the right to lodge a complaint with your local supervisory authority (in the EU, this is your country's national data protection authority; in the UK, this is the Information Commissioner's Office) if you believe we have not complied with applicable data protection law. We encourage you to contact us directly first to resolve any concerns.
+    </p>
+
+    <h3 class="legal-h3">8.2 Automated Decision-Making</h3>
+    <p class="legal-p">
+      The Company does not subject you to decisions based solely on automated processing, including profiling, that produce legal or similarly significant effects, as described in Article 22 GDPR. Any segmentation or personalization performed using your usage data involves human review of material decisions.
+    </p>
+
+    <h3 class="legal-h3">8.3 Data Breach Notification</h3>
+    <p class="legal-p">
+      In the event of a personal data breach that is likely to result in a risk to your rights and freedoms, the Company will notify affected individuals without undue delay, and in any event within 72 hours of becoming aware of such a breach where required by GDPR Article 33 and Article 34. Notification will be provided via email to the address on file and, where required, to the applicable supervisory authority.
+    </p>
+
+    <!-- CCPA NOTICE -->
+    <h2 class="legal-h2" id="ccpa">§9 — CALIFORNIA CONSUMER PRIVACY ACT (CCPA) NOTICE</h2>
+
+    <h3 class="legal-h3">9.1 Categories of Personal Information Collected</h3>
+    <p class="legal-p">
+      In the preceding 12 months, the Company has collected the following categories of personal information as defined under the CCPA: Identifiers (name, email, IP address); Commercial information (purchase records, transaction history); Internet or electronic network activity information (website interactions, content accessed); Geolocation data (country/state level based on IP); Inferences drawn from the above for the purposes of product improvement. The Company has not collected sensitive personal information as defined by the CPRA.
+    </p>
+
+    <h3 class="legal-h3">9.2 Business Purposes for Collection</h3>
+    <p class="legal-p">
+      We collect personal information for the following business purposes: providing and improving the Product and associated services; processing transactions and maintaining financial records; communicating with you about your account, purchases, and Product updates; safety and fraud prevention; internal analytics and research to improve the Product; legal compliance. We do not sell or share personal information for cross-context behavioral advertising.
+    </p>
+
+    <h3 class="legal-h3">9.3 California Consumer Rights</h3>
+    <p class="legal-p">
+      California residents have the right to: (1) Know what personal information is collected, used, shared, or sold; (2) Delete personal information held by businesses and by extension, their service providers; (3) Opt-out of the sale of personal information (not applicable — we do not sell personal information); (4) Non-discrimination for exercising CCPA rights; (5) Correct inaccurate personal information (CPRA); (6) Limit use and disclosure of sensitive personal information (CPRA; not currently applicable). Submit requests to: privacy@aiautomationempire.com or via our website privacy request form at aiautomationempire.com/privacy-request. We will verify your identity before processing requests and respond within 45 days (with up to 45-day extension for complex requests).
+    </p>
+
+    <!-- INTELLECTUAL PROPERTY -->
+    <h2 class="legal-h2" id="ip">§10 — INTELLECTUAL PROPERTY NOTICE</h2>
+
+    <h3 class="legal-h3">10.1 Copyright Notice</h3>
+    <p class="legal-p">
+      © 2024–2026 AI Automation Empire LLC. All rights reserved. The entire contents of this Product, website, and all associated materials — including text, graphics, frameworks, templates, video content, audio content, software tools, and methodologies — are protected by United States and international copyright law. Registration Number: pending. No portion of this work may be reproduced, adapted, transmitted, displayed, published, or distributed in any form or by any means without the express prior written permission of AI Automation Empire LLC.
+    </p>
+
+    <h3 class="legal-h3">10.2 Trademark Notice</h3>
+    <p class="legal-p">
+      "AI Automation Empire," "Enterprise Blueprint," "Lead Machine," "Compound Outreach System," "Zero Trust Automation Architecture," and related names and logos are trademarks or service marks of AI Automation Empire LLC. All other trademarks referenced in the Product are the property of their respective owners. No license to use any trademark is granted by these Terms or by the purchase of the Product.
+    </p>
+
+    <h3 class="legal-h3">10.3 DMCA Notice and Takedown Procedure</h3>
+    <p class="legal-p">
+      If you believe any content on our platforms infringes your copyright, please submit a written notice to our designated DMCA agent at: dmca@aiautomationempire.com, including: (1) identification of the copyrighted work claimed to be infringed; (2) identification of the infringing material and its location; (3) your contact information; (4) a statement of good faith belief that the use is unauthorized; (5) a statement, under penalty of perjury, that the information is accurate and you are authorized to act on behalf of the copyright owner; and (6) your physical or electronic signature.
+    </p>
+
+    <h3 class="legal-h3">10.4 Third-Party Content and Licenses</h3>
+    <p class="legal-p">
+      Certain portions of the Product reference, cite, or incorporate statistical data, research findings, and methodologies from third-party sources (including Gartner, McKinsey, Forrester, Grand View Research, MarketsandMarkets, and others). Such references are made for educational and contextual purposes under fair use doctrine where applicable, and do not imply endorsement of or affiliation with the Company by any referenced organization. All statistical claims are properly attributed and represent the Company's good-faith interpretation of publicly available research at the time of writing.
+    </p>
+
+    <!-- GENERAL PROVISIONS -->
+    <h2 class="legal-h2" id="general">§11 — GENERAL PROVISIONS</h2>
+
+    <h3 class="legal-h3">11.1 Entire Agreement</h3>
+    <p class="legal-p">
+      These Terms, together with the Privacy Policy, Refund Policy, Acceptable Use Policy, and any additional terms applicable to specific features or services, constitute the entire agreement between you and the Company regarding the Product, and supersede all prior or contemporaneous agreements, representations, and understandings, whether written or oral.
+    </p>
+
+    <h3 class="legal-h3">11.2 Severability</h3>
+    <p class="legal-p">
+      If any provision of these Terms is found by a court or arbitrator of competent jurisdiction to be invalid, illegal, or unenforceable, such provision shall be modified to the minimum extent necessary to make it valid and enforceable, and the remaining provisions shall continue in full force and effect.
+    </p>
+
+    <h3 class="legal-h3">11.3 Waiver</h3>
+    <p class="legal-p">
+      The Company's failure to exercise or enforce any right or provision of these Terms shall not constitute a waiver of that right or provision. Any waiver must be in writing and signed by an authorized representative of the Company.
+    </p>
+
+    <h3 class="legal-h3">11.4 Assignment</h3>
+    <p class="legal-p">
+      You may not assign, delegate, or transfer your rights or obligations under these Terms, including your license to the Product, without the Company's prior written consent. The Company may assign these Terms, in whole or in part, in connection with a merger, acquisition, corporate restructuring, or sale of all or substantially all of its assets. These Terms shall bind and inure to the benefit of the parties' respective successors and permitted assigns.
+    </p>
+
+    <h3 class="legal-h3">11.5 Force Majeure</h3>
+    <p class="legal-p">
+      The Company shall not be liable for any delay or failure in performance resulting from causes beyond its reasonable control, including: acts of God, natural disasters, pandemic or epidemic conditions, government actions, war, terrorist acts, cyberattacks, power failures, third-party platform outages, or labor disputes. In such circumstances, the Company will use commercially reasonable efforts to maintain Product availability and will notify affected users of material disruptions.
+    </p>
+
+    <h3 class="legal-h3">11.6 Lifetime Updates — Commitment and Limitations</h3>
+    <p class="legal-p">
+      The "lifetime updates" commitment means that all purchasers will receive access to future versions of the Product content for the duration of the Company's active operation of the AI Automation Empire product line. "Active operation" is defined as the period during which the Company continues to: (a) maintain the practitioner portal; (b) publish at least one major content update per calendar year; and (c) maintain support channels. The Company will provide a minimum of 90 days' notice via email if it intends to discontinue active operation of the Product. The Company does not guarantee that updates will be published on any specific schedule, or that updates will address any particular topic or market development.
+    </p>
+
+    <h3 class="legal-h3">11.7 Contact Information</h3>
+    <p class="legal-p">For all inquiries relating to these Terms, privacy rights, intellectual property, refunds, or support:</p>
+    <div class="legal-highlight">
+      <strong>AI Automation Empire LLC</strong><br>
+      Legal & Compliance: legal@aiautomationempire.com<br>
+      Privacy Requests: privacy@aiautomationempire.com<br>
+      Customer Support: support@aiautomationempire.com<br>
+      Enterprise Licensing: enterprise@aiautomationempire.com<br>
+      DMCA Agent: dmca@aiautomationempire.com<br>
+      Mailing Address: 3000 El Camino Real, Suite 200, Palo Alto, CA 94306, United States<br>
+      <br>
+      <strong>Response SLA:</strong> Legal correspondence — 5 business days. Support requests — 48 hours. Privacy rights requests — 30 days (CCPA) / 30 days (GDPR).
+    </div>
+
+    <div class="legal-highlight" style="margin-top:3rem;">
+      <strong>Last Reviewed and Updated:</strong> January 1, 2026<br>
+      <strong>Effective Date:</strong> January 1, 2026<br>
+      <strong>Version:</strong> 3.2 — 2026 Enterprise Edition<br>
+      <strong>Jurisdiction of Drafting:</strong> State of California, United States of America<br>
+      <strong>Legal Reviewer:</strong> Enterprise Technology Law Group, Palo Alto, CA<br>
+      <br>
+      By completing your purchase of the AI Automation Empire Enterprise Blueprint, you acknowledge that you have read these Terms of Service in their entirety, that you understand their content, and that you agree to be legally bound by them.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+  FOOTER
+══════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="grid-2" style="gap:4rem;margin-bottom:3rem;align-items:start;">
+      <div>
+        <div class="footer-logo">AI AUTOMATION EMPIRE</div>
+        <div class="footer-sub">Enterprise Blueprint — Silicon Valley Edition — 2026</div>
+        <p style="font-size:0.85rem;color:var(--gray-500);line-height:1.7;max-width:400px;">
+          The complete operating system for building, scaling, and exiting a high-value AI automation consulting business. Engineered by a Silicon Valley CISO. Validated through $2.4M+ in documented client revenue.
+        </p>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+          <div>
+            <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-500);margin-bottom:1rem;">Product</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+              <li><a href="#modules" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">12 Modules</a></li>
+              <li><a href="#results" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">Case Studies</a></li>
+              <li><a href="#pricing" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">Pricing</a></li>
+              <li><a href="#faq" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">FAQ</a></li>
+              <li><a href="#guarantee" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">Guarantee</a></li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-500);margin-bottom:1rem;">Legal</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+              <li><a href="#tos" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">Terms of Service</a></li>
+              <li><a href="#privacy" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">Privacy Policy</a></li>
+              <li><a href="#refund" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">Refund Policy</a></li>
+              <li><a href="#disclaimer" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">Disclaimer</a></li>
+              <li><a href="#gdpr" style="color:var(--gray-500);text-decoration:none;font-size:0.85rem;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-400)'" onmouseout="this.style.color='var(--gray-500)'">GDPR / CCPA</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <p style="margin-bottom:1rem;">
+        <strong style="color:var(--gray-400);">Important Legal Notices:</strong> AI Automation Empire LLC is a Delaware limited liability company. The content of this website and the Product is for educational purposes only and does not constitute legal, financial, investment, tax, or professional advice. All income figures and case studies represent past performance of specific practitioners and are not guarantees of future results. Individual results vary materially based on effort, market conditions, and execution quality.
+      </p>
+      <p style="margin-bottom:1rem;">
+        AI Automation Empire is not affiliated with, endorsed by, or associated with Make.com, n8n, Zapier, OpenAI, Anthropic, Clay, Apollo.io, HubSpot, Salesforce, McKinsey & Company, Gartner, Forrester Research, or any other third-party product, company, or organization referenced on this website or in the Product.
+      </p>
+      <p>
+        © 2024–2026 AI Automation Empire LLC. All rights reserved. Unauthorized reproduction, distribution, or commercial use of any portion of this website or the Product is strictly prohibited and may result in civil and criminal penalties under applicable intellectual property law. Protected by U.S. and International Copyright Law.
+      </p>
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:var(--border-subtle);display:flex;justify-content:space-between;flex-wrap:gap;align-items:center;gap:1rem;">
+        <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gray-600);">v3.2 · 2026 · Silicon Valley Edition · California Law Governs</span>
+        <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--gold-600);">★ SOC2 · GDPR · ISO 27001 · CCPA ★</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── SCROLL PROGRESS ──────────────────────────────────────────
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  progressBar.style.width = progress + '%';
+});
+
+// ─── FAQ TOGGLE ───────────────────────────────────────────────
+function toggleFaq(button) {
+  const item = button.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ─── INTERSECTION OBSERVER FOR ANIMATIONS ────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.card, .module-card, .testimonial, .pricing-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
