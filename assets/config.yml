@@ -1,0 +1,18 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: 📧 Enterprise Support & Licensing
+    url: mailto:CONTACT@LOCALPULSE.PRO
+    about: For licensing inquiries, enterprise access, and direct support — email Ciprian Stefan Plesca.
+
+  - name: 📅 Book an Enterprise Audit
+    url: https://cal.com/ciprian-stefan-plesca
+    about: Schedule an automation audit, architecture review, or enterprise strategy consultation.
+
+  - name: 🔒 Security Vulnerability Report
+    url: mailto:CONTACT@LOCALPULSE.PRO?subject=[SECURITY]%20Vulnerability%20Report
+    about: Report security vulnerabilities privately. Do NOT open a public issue. See SECURITY.md for the full policy.
+
+  - name: 🌐 LOCALPULSE.PRO
+    url: https://localpulse.pro
+    about: Visit the official website for more information about the AI Automation Empire program.

@@ -1,0 +1,190 @@
+name: Security & Compliance Scan
+
+# AI Automation Empire — Enterprise Blueprint
+# © 2026 Ciprian Stefan Plesca · LOCALPULSE.PRO · All Rights Reserved
+#
+# This workflow runs automated security scanning on every push and pull request.
+# It enforces zero-tolerance for secrets, credentials, and known vulnerabilities.
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'release/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+  schedule:
+    # Run weekly on Monday at 06:00 UTC (CISO scheduled scan)
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      scan_depth:
+        description: 'Scan depth'
+        required: false
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - quick
+
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: read
+
+jobs:
+
+  # ── JOB 1: SECRET SCANNING ──────────────────────────────────────
+  secret-scan:
+    name: Secret & Credential Scan (Gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for comprehensive scan
+
+      - name: Run Gitleaks secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+
+      - name: Upload scan results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitleaks-report
+          path: results.sarif
+          retention-days: 30
+
+  # ── JOB 2: DEPENDENCY VULNERABILITY SCAN ────────────────────────
+  dependency-scan:
+    name: Dependency Vulnerability Scan
+    runs-on: ubuntu-latest
+    if: hashFiles('package.json', 'requirements.txt', 'Gemfile') != ''
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '1'
+
+      - name: Upload Trivy results to Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # ── JOB 3: MARKDOWN LINK VALIDATION ─────────────────────────────
+  link-check:
+    name: Documentation Link Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Markdown links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'no'
+          config-file: '.github/mlc_config.json'
+          folder-path: '.'
+          file-extension: '.md'
+
+  # ── JOB 4: PII PATTERN SCAN ─────────────────────────────────────
+  pii-scan:
+    name: PII & Sensitive Data Pattern Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Scan for PII patterns
+        run: |
+          echo "Scanning for potential PII patterns..."
+          # Email patterns (beyond legitimate contact references)
+          PII_COUNT=0
+          
+          # Check for SSN patterns
+          if grep -rP '\b\d{3}-\d{2}-\d{4}\b' --include="*.md" --include="*.json" --include="*.yml" .; then
+            echo "WARNING: SSN pattern detected"
+            PII_COUNT=$((PII_COUNT + 1))
+          fi
+          
+          # Check for credit card patterns  
+          if grep -rP '\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})\b' --include="*.md" . ; then
+            echo "WARNING: Credit card pattern detected"
+            PII_COUNT=$((PII_COUNT + 1))
+          fi
+          
+          if [ $PII_COUNT -gt 0 ]; then
+            echo "SCAN FAILED: $PII_COUNT PII pattern(s) detected. Review and remediate."
+            exit 1
+          fi
+          
+          echo "PII scan complete — no patterns detected."
+
+  # ── JOB 5: COMPLIANCE METADATA CHECK ────────────────────────────
+  compliance-check:
+    name: Compliance Metadata Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate required files exist
+        run: |
+          echo "Validating required enterprise repository files..."
+          REQUIRED_FILES=(
+            "SECURITY.md"
+            "LICENSE.md"
+            "CONTRIBUTING.md"
+            "CODE_OF_CONDUCT.md"
+            "GOVERNANCE.md"
+            "SUPPORT.md"
+            "CHANGELOG.md"
+            "CODEOWNERS"
+            ".github/PULL_REQUEST_TEMPLATE.md"
+            ".github/ISSUE_TEMPLATE/bug_report.md"
+            ".github/ISSUE_TEMPLATE/feature_request.md"
+          )
+          
+          MISSING=0
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "MISSING: $file"
+              MISSING=$((MISSING + 1))
+            else
+              echo "OK: $file"
+            fi
+          done
+          
+          if [ $MISSING -gt 0 ]; then
+            echo "COMPLIANCE FAILED: $MISSING required file(s) missing."
+            exit 1
+          fi
+          
+          echo "All required enterprise files present."
+
+      - name: Validate copyright headers
+        run: |
+          echo "Checking copyright notices in key files..."
+          for file in SECURITY.md LICENSE.md CONTRIBUTING.md CODE_OF_CONDUCT.md GOVERNANCE.md; do
+            if ! grep -q "Ciprian Stefan Plesca" "$file"; then
+              echo "WARNING: Copyright notice missing or incorrect in $file"
+            else
+              echo "OK: $file contains copyright attribution"
+            fi
+          done

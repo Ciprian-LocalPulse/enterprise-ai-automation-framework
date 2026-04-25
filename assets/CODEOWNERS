@@ -1,0 +1,39 @@
+# CODEOWNERS
+#
+# AI Automation Empire — Enterprise Blueprint
+# © 2026 Ciprian Stefan Plesca · LOCALPULSE.PRO · All Rights Reserved
+#
+# This file defines ownership of all files and directories in this repository.
+# Code owners are automatically requested for review when a pull request
+# modifies a file they own.
+#
+# Format: <pattern> <owner>
+# Owners can be GitHub usernames (@username) or team handles (@org/team).
+# Replace @ciprian-stefan-plesca with your actual GitHub username.
+#
+# Documentation: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# ── GLOBAL OWNER ──────────────────────────────────────────────────
+# Ciprian Stefan Plesca owns everything by default.
+*                                   @ciprian-stefan-plesca
+
+# ── SECURITY FILES ────────────────────────────────────────────────
+# All security-related files require CISO (governing authority) review.
+SECURITY.md                         @ciprian-stefan-plesca
+.github/workflows/                  @ciprian-stefan-plesca
+
+# ── LEGAL & COMPLIANCE ────────────────────────────────────────────
+# License, governance, and compliance documents.
+LICENSE.md                          @ciprian-stefan-plesca
+GOVERNANCE.md                       @ciprian-stefan-plesca
+CODE_OF_CONDUCT.md                  @ciprian-stefan-plesca
+
+# ── CONTRIBUTION GUIDELINES ───────────────────────────────────────
+CONTRIBUTING.md                     @ciprian-stefan-plesca
+.github/PULL_REQUEST_TEMPLATE.md    @ciprian-stefan-plesca
+.github/ISSUE_TEMPLATE/             @ciprian-stefan-plesca
+
+# ── CORE DOCUMENTATION ────────────────────────────────────────────
+README.md                           @ciprian-stefan-plesca
+CHANGELOG.md                        @ciprian-stefan-plesca
+SUPPORT.md                          @ciprian-stefan-plesca

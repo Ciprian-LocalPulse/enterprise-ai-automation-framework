@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Automation Empire — Enterprise Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #030508;
+  --abyss: #07090f;
+  --deep: #0d1117;
+  --panel: #111520;
+  --gold: #c9a84c;
+  --gold-bright: #e8c96d;
+  --gold-dim: #7a6229;
+  --ice: #e8f0fe;
+  --steel: #8899bb;
+  --crimson: #a0192a;
+  --crimson-bright: #e02040;
+  --glow-gold: rgba(201,168,76,0.15);
+  --glow-crimson: rgba(160,25,42,0.2);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--void);
+  color: var(--ice);
+  font-family: 'IBM Plex Mono', monospace;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+#cursor {
+  position: fixed; width: 12px; height: 12px;
+  background: var(--gold); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s, background 0.3s;
+  mix-blend-mode: difference;
+}
+#cursor-ring {
+  position: fixed; width: 40px; height: 40px;
+  border: 1px solid var(--gold); border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: all 0.15s ease;
+  opacity: 0.5;
+}
+
+/* ── CANVAS BACKGROUND ── */
+#matrix-canvas {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0; opacity: 0.07;
+  pointer-events: none;
+}
+
+/* ── SCANLINES ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none; z-index: 1;
+}
+
+/* ── SECTIONS ── */
+section { position: relative; z-index: 2; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.08) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 40% at 20% 80%, rgba(160,25,42,0.06) 0%, transparent 60%),
+              var(--void);
+  overflow: hidden;
+}
+
+.hero-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.3s forwards;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.6s forwards;
+}
+
+.hero-title .line1 { display: block; color: var(--ice); }
+.hero-title .line2 {
+  display: block;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-dim));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-title .line3 {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.5em;
+  color: var(--steel);
+  -webkit-text-fill-color: var(--steel);
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--steel);
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.9s forwards;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border: 1px solid var(--gold-dim);
+  background: rgba(201,168,76,0.05);
+  padding: 0.4rem 1.2rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  backdrop-filter: blur(10px);
+}
+.badge-dot { width: 6px; height: 6px; background: var(--crimson-bright); border-radius: 50%; animation: pulse 1.5s ease infinite; }
+
+.hero-cta-row {
+  display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.2s forwards;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  color: var(--void);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border: none; cursor: none;
+  position: relative; overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 60px rgba(201,168,76,0.3); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem; font-weight: 400;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  background: transparent; cursor: none;
+  transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  background: rgba(201,168,76,0.08);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ── FLOATING LINES ── */
+.hero-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  height: 1px; width: 60%;
+  opacity: 0.3;
+}
+.hero-line.top { top: 20%; left: 20%; animation: lineSlide 6s ease-in-out infinite; }
+.hero-line.bottom { bottom: 25%; right: 10%; width: 40%; animation: lineSlide 8s ease-in-out infinite reverse; }
+
+@keyframes lineSlide {
+  0%, 100% { transform: scaleX(0.5) translateX(-10%); opacity: 0.1; }
+  50% { transform: scaleX(1) translateX(5%); opacity: 0.4; }
+}
+
+/* ── STATS BAR ── */
+#stats {
+  padding: 5rem 2rem;
+  background: var(--abyss);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  max-width: 1200px; margin: 0 auto;
+}
+
+.stat-item {
+  padding: 2rem;
+  text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 40%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--gold-bright);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--steel);
+}
+
+/* ── ARCHITECT SECTION ── */
+#architect {
+  padding: 8rem 2rem;
+  background: linear-gradient(180deg, var(--abyss) 0%, var(--void) 100%);
+}
+
+.arch-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+  align-items: center;
+}
+
+.arch-visual {
+  position: relative;
+}
+
+.arch-hexagon {
+  width: 280px; height: 280px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.02));
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(201,168,76,0.2);
+  animation: hexRotate 20s linear infinite;
+  position: relative;
+}
+
+.arch-hexagon::before {
+  content: 'CSP';
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem; font-weight: 900;
+  color: var(--gold);
+  letter-spacing: -0.05em;
+}
+
+@keyframes hexRotate {
+  0% { box-shadow: 0 0 40px rgba(201,168,76,0.1); }
+  50% { box-shadow: 0 0 80px rgba(201,168,76,0.2), inset 0 0 40px rgba(201,168,76,0.05); }
+  100% { box-shadow: 0 0 40px rgba(201,168,76,0.1); }
+}
+
+.arch-orbit {
+  position: absolute; top: 50%; left: 50%;
+  border: 1px dashed rgba(201,168,76,0.2);
+  border-radius: 50%;
+  animation: orbit 15s linear infinite;
+}
+.arch-orbit:nth-child(2) { width: 340px; height: 340px; margin: -170px 0 0 -170px; }
+.arch-orbit:nth-child(3) { width: 420px; height: 420px; margin: -210px 0 0 -210px; animation-direction: reverse; animation-duration: 25s; }
+
+.orbit-dot {
+  position: absolute; width: 8px; height: 8px;
+  background: var(--gold); border-radius: 50%;
+  top: -4px; left: 50%; transform: translateX(-50%);
+  box-shadow: 0 0 12px var(--gold);
+}
+
+@keyframes orbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.arch-content { }
+
+.section-tag {
+  font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+}
+
+.arch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700; line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.arch-body {
+  font-size: 0.85rem; line-height: 1.9;
+  color: var(--steel);
+  margin-bottom: 2rem;
+}
+
+.credentials {
+  display: flex; flex-direction: column; gap: 0.8rem;
+}
+
+.credential-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-left: 2px solid var(--gold-dim);
+  background: rgba(201,168,76,0.03);
+  font-size: 0.75rem;
+  color: var(--steel);
+  transition: all 0.3s ease;
+}
+.credential-item:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.07);
+  color: var(--ice);
+}
+.cred-icon { color: var(--gold); font-size: 1rem; }
+
+/* ── MODULES ── */
+#modules {
+  padding: 8rem 2rem;
+  background: var(--void);
+}
+
+.section-header {
+  text-align: center; max-width: 700px; margin: 0 auto 5rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900; margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.section-sub {
+  color: var(--steel); font-size: 0.85rem; line-height: 1.8;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  max-width: 1300px; margin: 0 auto;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.08);
+}
+
+.module-card {
+  background: var(--void);
+  padding: 2.5rem;
+  position: relative; overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: none;
+}
+
+.module-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 0% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.module-card:hover::before { opacity: 1; }
+.module-card:hover { background: var(--panel); }
+
+.module-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem; line-height: 1;
+  color: rgba(201,168,76,0.12);
+  margin-bottom: 1rem;
+  transition: color 0.4s ease;
+}
+.module-card:hover .module-num { color: rgba(201,168,76,0.3); }
+
+.module-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  margin-bottom: 0.8rem; color: var(--ice);
+}
+
+.module-desc {
+  font-size: 0.75rem; color: var(--steel);
+  line-height: 1.7;
+}
+
+.module-lock {
+  position: absolute; bottom: 1.5rem; right: 1.5rem;
+  width: 28px; height: 28px;
+  border: 1px solid var(--gold-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; color: var(--gold-dim);
+  transition: all 0.3s ease;
+}
+.module-card:hover .module-lock {
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 12px rgba(201,168,76,0.2);
+}
+
+/* ── VAULT SECTION ── */
+#vault {
+  padding: 8rem 2rem;
+  background: var(--abyss);
+  position: relative; overflow: hidden;
+}
+
+#vault::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(160,25,42,0.06) 0%, transparent 70%);
+}
+
+.vault-inner {
+  max-width: 900px; margin: 0 auto; text-align: center;
+  position: relative; z-index: 1;
+}
+
+.vault-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900; line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.vault-headline em {
+  font-style: italic; color: var(--gold);
+}
+
+.vault-sub {
+  color: var(--steel); font-size: 0.85rem; line-height: 1.8;
+  max-width: 600px; margin: 0 auto 4rem;
+}
+
+.deliverables {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem; margin-bottom: 4rem;
+}
+
+.deliverable {
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: rgba(201,168,76,0.02);
+  transition: all 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.deliverable::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.deliverable:hover { border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.06); }
+.deliverable:hover::after { transform: scaleX(1); }
+
+.deliv-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem; color: var(--gold);
+  line-height: 1;
+}
+.deliv-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--steel); margin-top: 0.3rem;
+}
+
+/* ── COMPLIANCE STRIP ── */
+#compliance {
+  padding: 4rem 2rem;
+  background: var(--void);
+  border-top: 1px solid rgba(201,168,76,0.08);
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+
+.compliance-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  gap: 3rem; flex-wrap: wrap;
+}
+
+.compliance-tag {
+  text-align: center;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(201,168,76,0.2);
+  position: relative;
+  transition: all 0.3s;
+}
+.compliance-tag:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.05);
+  box-shadow: 0 0 30px rgba(201,168,76,0.1);
+}
+.comp-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem; color: var(--gold);
+}
+.comp-desc {
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--steel); margin-top: 0.2rem;
+}
+
+/* ── CTA ── */
+#cta {
+  padding: 10rem 2rem;
+  background: var(--void);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+
+#cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.cta-kicker {
+  font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem;
+}
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900; line-height: 1.05;
+  margin-bottom: 1.5rem;
+  position: relative; z-index: 1;
+}
+
+.cta-title span {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-body {
+  color: var(--steel); font-size: 0.85rem; line-height: 1.9;
+  max-width: 550px; margin: 0 auto 3rem;
+  position: relative; z-index: 1;
+}
+
+.cta-buttons {
+  display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;
+  position: relative; z-index: 1;
+  margin-bottom: 3rem;
+}
+
+.contact-strip {
+  font-size: 0.7rem; color: var(--steel); letter-spacing: 0.1em;
+  position: relative; z-index: 1;
+}
+.contact-strip a {
+  color: var(--gold); text-decoration: none;
+  transition: color 0.3s;
+}
+.contact-strip a:hover { color: var(--gold-bright); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 3rem 2rem;
+  background: var(--abyss);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  text-align: center;
+  font-size: 0.7rem; color: var(--steel);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+footer strong { color: var(--gold); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.6; }
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+
+/* ── TICKER ── */
+.ticker-wrap {
+  overflow: hidden;
+  padding: 1rem 0;
+  background: rgba(201,168,76,0.04);
+  border-top: 1px solid rgba(201,168,76,0.08);
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+.ticker {
+  display: flex; white-space: nowrap;
+  animation: ticker 30s linear infinite;
+  font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.ticker span { padding: 0 3rem; }
+.ticker .sep { color: var(--gold); }
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── GLITCH ── */
+.glitch {
+  position: relative;
+}
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute; inset: 0;
+  font-family: inherit; font-size: inherit; font-weight: inherit;
+}
+.glitch::before {
+  color: var(--crimson-bright);
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  transform: translateX(-2px);
+  animation: glitch1 4s infinite;
+}
+.glitch::after {
+  color: var(--gold);
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translateX(2px);
+  animation: glitch2 4s infinite;
+}
+@keyframes glitch1 {
+  0%, 95%, 100% { transform: translateX(0); opacity: 0; }
+  96% { transform: translateX(-3px); opacity: 0.8; }
+  97% { transform: translateX(3px); opacity: 0.6; }
+  98% { transform: translateX(-1px); opacity: 0.8; }
+}
+@keyframes glitch2 {
+  0%, 95%, 100% { transform: translateX(0); opacity: 0; }
+  96% { transform: translateX(3px); opacity: 0.6; }
+  97% { transform: translateX(-3px); opacity: 0.8; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .arch-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .arch-hexagon { width: 200px; height: 200px; }
+  .arch-orbit:nth-child(2) { width: 240px; height: 240px; margin: -120px 0 0 -120px; }
+  .arch-orbit:nth-child(3) { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  #cursor, #cursor-ring { display: none; }
+  body { cursor: auto; }
+  .btn-primary, .btn-ghost { cursor: pointer; }
+  .module-card { cursor: pointer; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- MATRIX CANVAS -->
+<canvas id="matrix-canvas"></canvas>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-line top"></div>
+  <div class="hero-line bottom"></div>
+
+  <div class="hero-eyebrow">Confidential · Enterprise Edition · Version 3.2 · 2026</div>
+
+  <h1 class="hero-title">
+    <span class="line1">AI Automation</span>
+    <span class="line2 glitch" data-text="Empire">Empire</span>
+    <span class="line3">Enterprise Blueprint</span>
+  </h1>
+
+  <p class="hero-sub">
+    The complete system to build, scale & exit a $50,000/month<br>
+    AI automation business — security-first, enterprise-grade.
+  </p>
+
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Now Accepting Enterprise Clients — Limited Availability
+  </div>
+
+  <div class="hero-cta-row">
+    <a href="https://cal.com/ciprian-stefan-plesca" target="_blank" class="btn-primary">
+      ⬡ &nbsp; Book Your Audit
+    </a>
+    <a href="mailto:CONTACT@LOCALPULSE.PRO" class="btn-ghost">
+      ✉ &nbsp; Contact Directly
+    </a>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>$2.4M+ Client Revenue Documented</span><span class="sep">◆</span>
+    <span>150+ Fortune 500 Implementations</span><span class="sep">◆</span>
+    <span>SOC2 · GDPR · ISO 27001 · CCPA</span><span class="sep">◆</span>
+    <span>12 Enterprise Modules · 340+ Pages</span><span class="sep">◆</span>
+    <span>47 Ready-to-Deploy Templates</span><span class="sep">◆</span>
+    <span>200+ Enterprise AI Prompts</span><span class="sep">◆</span>
+    <span>$91.5B Global Automation Market</span><span class="sep">◆</span>
+    <span>Zero-Trust Architecture · CISO-Validated</span><span class="sep">◆</span>
+    <!-- duplicate for seamless loop -->
+    <span>$2.4M+ Client Revenue Documented</span><span class="sep">◆</span>
+    <span>150+ Fortune 500 Implementations</span><span class="sep">◆</span>
+    <span>SOC2 · GDPR · ISO 27001 · CCPA</span><span class="sep">◆</span>
+    <span>12 Enterprise Modules · 340+ Pages</span><span class="sep">◆</span>
+    <span>47 Ready-to-Deploy Templates</span><span class="sep">◆</span>
+    <span>200+ Enterprise AI Prompts</span><span class="sep">◆</span>
+    <span>$91.5B Global Automation Market</span><span class="sep">◆</span>
+    <span>Zero-Trust Architecture · CISO-Validated</span><span class="sep">◆</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number" data-target="50000" data-prefix="$" data-suffix="/mo">$0</div>
+      <div class="stat-label">Annual Revenue Target</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-target="91.5" data-suffix="B">0</div>
+      <div class="stat-label">Global Market Size 2024</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-target="237" data-suffix="%">0%</div>
+      <div class="stat-label">Avg. Automation ROI · 12mo</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-target="500" data-prefix="$" data-suffix="K+">$0</div>
+      <div class="stat-label">Annual Enterprise Contracts</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-target="2.4" data-prefix="$" data-suffix="M+">$0</div>
+      <div class="stat-label">Documented Client Revenue</div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECT -->
+<section id="architect">
+  <div class="arch-inner">
+    <div class="arch-visual reveal">
+      <div class="arch-orbit"><div class="orbit-dot"></div></div>
+      <div class="arch-orbit"><div class="orbit-dot"></div></div>
+      <div class="arch-hexagon"></div>
+    </div>
+    <div class="arch-content reveal">
+      <div class="section-tag">// The Architect</div>
+      <h2 class="arch-title">Ciprian<br>Stefan Plesca</h2>
+      <p class="arch-body">
+        As a CISO with deep roots in Silicon Valley enterprise environments,
+        Ciprian has led AI automation deployments across Fortune 500 organizations
+        in healthcare, finance, and government. This blueprint bridges the critical 
+        gap between explosive commercial opportunity and the enterprise-grade security,
+        compliance, and governance that serious operators demand.
+      </p>
+      <div class="credentials">
+        <div class="credential-item"><span class="cred-icon">◈</span> CISO · Enterprise Security Architect</div>
+        <div class="credential-item"><span class="cred-icon">◈</span> 150+ Production Automation Implementations</div>
+        <div class="credential-item"><span class="cred-icon">◈</span> Fortune 500 · Healthcare · Finance · Government</div>
+        <div class="credential-item"><span class="cred-icon">◈</span> SOC2 · ISO 27001 · GDPR · CCPA Certified</div>
+        <div class="credential-item"><span class="cred-icon">◈</span> $2.4M+ Documented Client Revenue</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section id="modules">
+  <div class="section-header reveal">
+    <div class="section-tag">// 12 Enterprise Modules</div>
+    <h2 class="section-title">The Complete<br>Operator System</h2>
+    <p class="section-sub">
+      Each module is a standalone discipline — together they form
+      the most comprehensive AI automation business framework ever assembled.
+    </p>
+  </div>
+
+  <div class="modules-grid">
+    <div class="module-card reveal">
+      <div class="module-num">01</div>
+      <div class="module-name">Niche Selection & Offer Design</div>
+      <div class="module-desc">The highest-leverage decision in your business. Proprietary frameworks for 3–5x premium pricing and 60% faster deal close.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">02</div>
+      <div class="module-name">Pricing, Positioning & Packaging</div>
+      <div class="module-desc">Value-based pricing that unlocks 75–85% margins. Three-tier anchoring strategy that transforms how clients perceive your value.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">03</div>
+      <div class="module-name">Cold Outreach & Client Acquisition</div>
+      <div class="module-desc">A compound 7-touch system that generated $1.2M+ in pipeline in 90 days. Battle-tested with documented conversion rates.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">04</div>
+      <div class="module-name">Technical Architecture & Security Stack</div>
+      <div class="module-desc">Zero-trust enterprise architecture. The framework that separates your business from 99% of competitors in regulated industries.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">05</div>
+      <div class="module-name">Compliance & Regulatory Framework</div>
+      <div class="module-desc">GDPR, SOC2 Type II, ISO 27001, CCPA. Turn compliance into a 20–40% revenue premium and the key to Fortune 500 deals.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">06</div>
+      <div class="module-name">Delivery & Implementation Excellence</div>
+      <div class="module-desc">6-week enterprise delivery framework. Every milestone, security checkpoint, and client touchpoint systematized.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">07</div>
+      <div class="module-name">Team Building & Agency Scaling</div>
+      <div class="module-desc">From solo operator to $100K/month agency. Exact hiring progression, role requirements, and profit optimization at each stage.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">08</div>
+      <div class="module-name">AI Tool Mastery & Prompt Engineering</div>
+      <div class="module-desc">Enterprise AI stack selection, 200+ vetted prompts, model cost optimization, and security-rated tool assessments.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">09</div>
+      <div class="module-name">Revenue Operations & KPIs</div>
+      <div class="module-desc">Financial model to $50K/month. The exact metrics dashboard — MRR, LTV, CAC, churn — that institutional buyers expect.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">10</div>
+      <div class="module-name">Enterprise Sales & Fortune 500</div>
+      <div class="module-desc">Navigate buying committees of 5–12 stakeholders. Win CISOs, CFOs, and legal teams simultaneously. Close $50K–$500K contracts.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">11</div>
+      <div class="module-name">Exit Strategy & Business Valuation</div>
+      <div class="module-desc">Build for a 4–8x EBITDA exit from day one. Valuation drivers, exit preparation timeline, and buyer type playbooks.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+    <div class="module-card reveal">
+      <div class="module-num">12</div>
+      <div class="module-name">Risk Management & Incident Response</div>
+      <div class="module-desc">Enterprise risk register, P1 incident response playbook, and business continuity framework. The CISO's sacred document.</div>
+      <div class="module-lock">⬡</div>
+    </div>
+  </div>
+</section>
+
+<!-- VAULT -->
+<section id="vault">
+  <div class="vault-inner">
+    <div class="section-tag reveal">// What's Inside the Vault</div>
+    <h2 class="vault-headline reveal">
+      Everything You Need to<br><em>Dominate</em> the Market
+    </h2>
+    <p class="vault-sub reveal">
+      47 production-ready automation templates, 200+ enterprise AI prompts, 
+      legal frameworks, compliance playbooks, and lifetime updates.
+      Every asset validated across $2.4M in live client revenue.
+    </p>
+
+    <div class="deliverables reveal">
+      <div class="deliverable">
+        <div class="deliv-number">12</div>
+        <div class="deliv-label">Enterprise Modules</div>
+      </div>
+      <div class="deliverable">
+        <div class="deliv-number">47</div>
+        <div class="deliv-label">Live Templates</div>
+      </div>
+      <div class="deliverable">
+        <div class="deliv-number">200+</div>
+        <div class="deliv-label">AI Prompts</div>
+      </div>
+      <div class="deliverable">
+        <div class="deliv-number">15</div>
+        <div class="deliv-label">Legal Templates</div>
+      </div>
+      <div class="deliverable">
+        <div class="deliv-number">6h</div>
+        <div class="deliv-label">Video Training</div>
+      </div>
+      <div class="deliverable">
+        <div class="deliv-number">∞</div>
+        <div class="deliv-label">Lifetime Updates</div>
+      </div>
+    </div>
+
+    <div class="cta-buttons reveal">
+      <a href="https://cal.com/ciprian-stefan-plesca" target="_blank" class="btn-primary">
+        ⬡ &nbsp; Book Your Enterprise Audit
+      </a>
+      <a href="mailto:CONTACT@LOCALPULSE.PRO" class="btn-ghost">
+        ✉ &nbsp; Request Access
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section id="compliance">
+  <div class="compliance-inner reveal">
+    <div class="compliance-tag">
+      <div class="comp-name">SOC 2</div>
+      <div class="comp-desc">Type II Ready</div>
+    </div>
+    <div class="compliance-tag">
+      <div class="comp-name">GDPR</div>
+      <div class="comp-desc">Full Compliance</div>
+    </div>
+    <div class="compliance-tag">
+      <div class="comp-name">ISO 27001</div>
+      <div class="comp-desc">Controls Framework</div>
+    </div>
+    <div class="compliance-tag">
+      <div class="comp-name">CCPA</div>
+      <div class="comp-desc">State Privacy Law</div>
+    </div>
+    <div class="compliance-tag">
+      <div class="comp-name">ZERO TRUST</div>
+      <div class="comp-desc">Architecture</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-kicker reveal">// Next Step</div>
+  <h2 class="cta-title reveal">
+    The Market Is<br><span>Bifurcating.</span><br>Choose Your Side.
+  </h2>
+  <p class="cta-body reveal">
+    Enterprises that have suffered breaches are now paying 2–3x premium 
+    for security-first automation. This blueprint positions you as that 
+    premium provider — or not at all.
+  </p>
+  <div class="cta-buttons reveal">
+    <a href="https://cal.com/ciprian-stefan-plesca" target="_blank" class="btn-primary">
+      ⬡ &nbsp; Schedule Enterprise Audit
+    </a>
+    <a href="mailto:CONTACT@LOCALPULSE.PRO" class="btn-ghost">
+      ✉ &nbsp; CONTACT@LOCALPULSE.PRO
+    </a>
+  </div>
+  <div class="contact-strip reveal">
+    Direct line · <a href="mailto:CONTACT@LOCALPULSE.PRO">CONTACT@LOCALPULSE.PRO</a>
+    &nbsp;·&nbsp;
+    Audit booking · <a href="https://cal.com/ciprian-stefan-plesca" target="_blank">cal.com/ciprian-stefan-plesca</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>AI Automation Empire — Enterprise Blueprint</strong><br>
+    © 2026 <strong>Ciprian Stefan Plesca</strong> · LOCALPULSE.PRO · All Rights Reserved<br>
+    Confidential & Proprietary · Unauthorized distribution is prohibited.<br>
+    <br>
+    <a href="mailto:CONTACT@LOCALPULSE.PRO" style="color: var(--gold-dim); text-decoration: none;">CONTACT@LOCALPULSE.PRO</a>
+    &nbsp;·&nbsp;
+    <a href="https://cal.com/ciprian-stefan-plesca" target="_blank" style="color: var(--gold-dim); text-decoration: none;">Book an Audit</a>
+  </p>
+</footer>
+
+<script>
+// ── CURSOR ──
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = -100, my = -100, rx = -100, ry = -100;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function animCursor() {
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animCursor);
+})();
+
+document.querySelectorAll('a, button, .module-card, .deliverable, .compliance-tag').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+    ring.style.transform = 'translate(-50%,-50%) scale(1.4)';
+    ring.style.opacity = '0.8';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+    ring.style.transform = 'translate(-50%,-50%) scale(1)';
+    ring.style.opacity = '0.5';
+  });
+});
+
+// ── MATRIX CANVAS ──
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; initMatrix(); });
+
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?ΩΨΦΣΘΛΞΠΓΔαβγδεζηθλμξπσφψω';
+const fontSize = 14;
+let cols, drops;
+function initMatrix() {
+  cols = Math.floor(canvas.width / fontSize);
+  drops = Array(cols).fill(1);
+}
+initMatrix();
+
+function drawMatrix() {
+  ctx.fillStyle = 'rgba(3,5,8,0.05)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#c9a84c';
+  ctx.font = fontSize + 'px IBM Plex Mono, monospace';
+  for (let i = 0; i < drops.length; i++) {
+    const char = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillStyle = Math.random() > 0.95 ? '#e8c96d' : 'rgba(201,168,76,0.4)';
+    ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+    drops[i]++;
+  }
+}
+setInterval(drawMatrix, 60);
+
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+revealEls.forEach(el => observer.observe(el));
+
+// ── ANIMATED COUNTERS ──
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const isFloat = target % 1 !== 0;
+  const duration = 2000;
+  const start = performance.now();
+  function update(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = target * eased;
+    el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.floor(current).toLocaleString()) + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
+
+// ── AUDIO ENGINE ──
+let audioCtx = null;
+function getAudio() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return audioCtx;
+}
+
+function playTone(freq, type, duration, volume) {
+  try {
+    const ac = getAudio();
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+    osc.connect(gain); gain.connect(ac.destination);
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, ac.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(freq * 0.7, ac.currentTime + duration);
+    gain.gain.setValueAtTime(volume, ac.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + duration);
+    osc.start(); osc.stop(ac.currentTime + duration);
+  } catch(e) {}
+}
+
+function playClick() { playTone(880, 'sine', 0.08, 0.05); }
+function playHover() { playTone(440, 'sine', 0.06, 0.02); }
+function playSuccess() {
+  [523, 659, 784].forEach((f,i) => setTimeout(() => playTone(f, 'sine', 0.15, 0.04), i * 80));
+}
+
+document.querySelectorAll('a, .btn-primary, .btn-ghost').forEach(el => {
+  el.addEventListener('mouseenter', playHover);
+  el.addEventListener('click', () => { playClick(); if(el.href && el.href.includes('cal.com')) playSuccess(); });
+});
+
+document.querySelectorAll('.module-card').forEach(el => {
+  el.addEventListener('mouseenter', () => playTone(330 + Math.random() * 220, 'sine', 0.05, 0.015));
+});
+
+// ── AMBIENT DRONE ──
+function startAmbient() {
+  try {
+    const ac = getAudio();
+    [55, 82.4, 110].forEach(freq => {
+      const osc = ac.createOscillator();
+      const gain = ac.createGain();
+      const lfo = ac.createOscillator();
+      const lfoGain = ac.createGain();
+      lfo.frequency.value = 0.1 + Math.random() * 0.2;
+      lfoGain.gain.value = 0.003;
+      lfo.connect(lfoGain); lfoGain.connect(gain.gain);
+      osc.connect(gain); gain.connect(ac.destination);
+      osc.frequency.value = freq;
+      osc.type = 'sine';
+      gain.gain.value = 0.008;
+      lfo.start(); osc.start();
+    });
+  } catch(e) {}
+}
+
+let ambientStarted = false;
+document.addEventListener('click', () => {
+  if (!ambientStarted) { ambientStarted = true; startAmbient(); }
+}, { once: true });
+
+// ── PARALLAX HERO ──
+window.addEventListener('scroll', () => {
+  const hero = document.getElementById('hero');
+  const scrolled = window.scrollY;
+  hero.style.transform = 'translateY(' + scrolled * 0.3 + 'px)';
+  hero.style.opacity = 1 - scrolled / window.innerHeight;
+});
+</script>
+</body>
+</html>
